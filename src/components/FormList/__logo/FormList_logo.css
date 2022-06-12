@@ -1,0 +1,8 @@
+.FormList__logo {
+    display: flex;
+    width: 396px;
+    align-items: flex-start;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,13 @@
+.NotFound__title {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 246px;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 169px;
+    color:#000000;
+}

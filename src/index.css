@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('./vendor/normalize.css');
+@import url('./vendor/fonts/fonts.css');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import url('./components/App/App.css');
+
+@import url('./components/Header/header.css');
+
+@import url('./components/FormList/__form/FormList__form');
+@import url('./components/FormList/__logo/FormList_logo.css');
+@import url('./components/FormList/__title/Formlist__title.css');
+@import url('./components/FormList/__button/FormList__button.css');
+@import url('./components/FormList/__button//_span/FormList__button_span.css');
+@import url('./components/FormList/__button/_link/FormList__button_link.css');
+
+@import url('./components/FormComponent/__label/FormComponent__label.css');
+@import url('./components/FormComponent/__name/FormComponent__name.css');
+
+
+@import url('./components/Login/Login.css');
+
+@import url('./components/FormComponent/__input/FormComponent__input.css');
+@import url('./components/FormComponent/__input/_type_error/popup__input_type_error.css');
+
+@import url('./components/Profile/Profile.css');
+@import url('./components/Profile/__title/Profile__title.css');
+@import url('./components/Profile/__label/Profile__label.css');
+@import url('./components/Profile/__button/Profile__button.css');
+@import url('./components/Profile/__button/_item/Profile__button_item.css');
+
+@import url('./components/NotFound/NotFound.css');
+@import url('./components/NotFound/__title/NotFound__title.css');
+@import url('./components/NotFound/__description/NotFound__description.css');
+@import url('./components/NotFound/__link/NotFound__link.css');
+
+@import url('./components/MoviesCard/MoviesCard.css');
+@import url('./components/MoviesCard/__image/MoviesCard__image.css');
+@import url('./components/MoviesCard/__info/MoviesCard__info.css');
+@import url('./components/MoviesCard/__text/MoviesCard__text.css');
+@import url('./components/MoviesCard/__trash/MoviesCard__trash.css');
+
+
+@import url('./components/Main/Main.css');
+@import url('./components/Promo/Promo.css');
+@import url('./components/NavTab/NavTab.css');
+@import url('./components/MainStack/MainStack.css');
+@import url('./components/AboutProject/AboutProject.css');
+@import url('./components/Progressbar/Progressbar.css');
+@import url('./components/Techs/Tech.css');
+@import url('./components/Portfolio/Portfolio.css');
+
+@import url('./components/Footer/footer.css');
+@import url('./components/Footer/footer__copyright.css');
+@import url('./components/Footer/footer__link.css');
+@import url('./components/Footer/footer__links-list.css');
+@import url('./components/Footer/footer__link-list-type.css');

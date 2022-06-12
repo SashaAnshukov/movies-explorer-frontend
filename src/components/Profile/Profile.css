@@ -1,0 +1,40 @@
+.Profile__input {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;  
+    background-color:#ffffff;
+    box-sizing: border-box;
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 13px;
+    margin: 0;
+    padding: 0 0 16px 0;
+    border: none;
+    outline: none;
+    direction:rtl
+}
+
+.Profile__input_name {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    width: 410px;
+    background-color:#ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    color: #000000;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 13px;
+    padding: 0;
+    border: none;
+    outline: none;
+    
+}

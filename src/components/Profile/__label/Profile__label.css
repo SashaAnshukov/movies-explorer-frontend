@@ -1,0 +1,16 @@
+.Profile__label{
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 17px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.Profile__label:nth-child(2) {
+    margin-bottom: 0;
+    border-bottom: none;
+}

@@ -1,0 +1,23 @@
+.footer__links-list {
+
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    padding-right: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:767px) {
+    .footer__links-list {
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .footer__links-list {
+        /*flex-direction: column;
+        padding-right: 30px;*/
+    }
+}
