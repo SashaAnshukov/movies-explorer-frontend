@@ -13,7 +13,10 @@ function Main() {
                 <Promo>
                     <NavTab />
                 </Promo>
-                
+                <AboutProject />
+                <Techs />
+                <AboutMe />
+                <Portfolio />
             </div>
         </main>
     )
