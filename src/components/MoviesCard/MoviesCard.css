@@ -1,10 +1,12 @@
 .MoviesCard {
     display: grid;
+    width: 100%;
+    margin: 0;
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content;
     /*row-gap: 10px;*/
     background-color: #FFFFFF;
-    border-radius: 10px;
     overflow: hidden;
+    border: 1px solid rgba(255, 44, 44, 0.7);
 }
 

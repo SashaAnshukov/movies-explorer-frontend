@@ -25,3 +25,10 @@
         line-height: 17px;*/
     }
 }
+
+@media screen and (max-width:390px) {
+    .footer__copyright {
+        margin: 18px auto 10px auto;
+        color: #A0A0A0;
+    }
+}

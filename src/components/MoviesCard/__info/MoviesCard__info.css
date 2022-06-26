@@ -3,9 +3,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    max-width: 246px;
-    margin-top: 25px;
-    margin-right: 15px;
-    margin-left: 21px;
-    margin-bottom: 31px;
+    margin: 0;
+    border: 1px solid rgba(255, 44, 44, 0.7);
 }

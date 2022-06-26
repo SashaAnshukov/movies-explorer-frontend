@@ -1,0 +1,47 @@
+.Movies__search{
+    display: flex;
+    width: 1140px;
+    justify-content: center;
+    margin: 70px auto 80px auto;
+    background: #F9F9F9;
+    border-radius: 9px;
+}
+
+.Movies__search-button{
+    border-radius: 50px;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    border:none;
+    align-self: center;
+    cursor: pointer;
+    background: url("../../../images/find.svg");
+    margin-right: 30px;
+}
+
+.Movies__search_fa {
+    display: inline-flex;
+    padding: 10px;
+}
+
+.Movies__search-icon {
+    background: url("../../../images/searc-icon.svg");
+    width: 34px;
+    height: 34px;
+    margin-right: 10px;
+    order: -1;
+}
+
+.Movies__search-field {
+    width: 750px;
+    background: #F9F9F9;
+    border: 0;
+}
+
+.Movies__search-field:focus {
+    outline: none;
+}
+
+.Movies__search-field:focus + .search-icon {
+    display: none;
+}

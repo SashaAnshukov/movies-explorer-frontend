@@ -14,6 +14,8 @@ function NavTab () {
         width: 270,
         height: 36,
         width: 10,
+        border: 'none',
+        padding: 0
     }
 
     const Techs__elements = {
@@ -53,9 +55,22 @@ function NavTab () {
     return (
         <section className="NavTab">
             <section style= {Techs__elements}>
-                    <NavIcon href="#О_проекте" titleIcon = {titleIcon.id1} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />
-                    <NavIcon href="#Технологии" titleIcon = {titleIcon.id2} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} /> 
-                    <NavIcon href="#Студент" titleIcon = {titleIcon.id3} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />      
+                    <NavIcon 
+                        href="#О_проекте" titleIcon = {titleIcon.id1}
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />
+                    <NavIcon 
+                        href="#Технологии" titleIcon = {titleIcon.id2}
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle}
+                        className = "opacity"
+                    /> 
+                    <NavIcon 
+                        href="#Студент" titleIcon = {titleIcon.id3}
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />      
                 </section>
                 
         </section>

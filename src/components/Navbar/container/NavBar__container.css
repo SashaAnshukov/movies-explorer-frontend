@@ -1,0 +1,18 @@
+.NavBar__container {
+    display: flex;
+    align-self: center;
+    margin-right: 70px;
+    height: 32px;
+}
+
+@media screen and (max-width: 768px) {
+    .NavBar__container {
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .NavBar__container {
+        margin-right: 14px;
+    }
+}

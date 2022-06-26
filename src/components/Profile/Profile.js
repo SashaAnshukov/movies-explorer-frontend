@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
-function Profile ({authorization}) {
+function Profile ({authorization, signOut}) {
     // Стейт, в котором содержится значение инпута - name, mail
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -22,7 +23,7 @@ function Profile ({authorization}) {
         // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
         // Передаём значения управляемых компонентов во внешний обработчик
-        authorization({ name, email });
+       // authorization({ name, email });
     }
 
     //очищаем инпуты при каждом открытии модального окна
@@ -69,11 +70,11 @@ function Profile ({authorization}) {
                         <button className="Profile__button_item" type ="submit"
                             aria-label="saveButton">Редактировать
                         </button>
-                        <button className="Profile__button_item" type ="submit"
-                            aria-label="saveButton">Выйти из аккаунта
-                        </button>
                     </div>
                 </form>
+                <button to='' className="Profile__button_item" onClick= {signOut}
+                    aria-label="signOutButton">Выйти из аккаунта
+                </button>
             </div>
         </div>
 

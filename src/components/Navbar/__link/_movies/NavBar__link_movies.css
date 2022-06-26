@@ -1,0 +1,16 @@
+.NavBar__link_movies{
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+.NavBar__link_movies:hover {
+    /*font-weight: 500;*/
+    text-shadow: 0.8px 0 0 #000000;
+}

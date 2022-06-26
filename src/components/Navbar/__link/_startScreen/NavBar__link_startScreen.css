@@ -1,0 +1,30 @@
+.NavBar__link_startScreen{
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 8px 20px 8px 20px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.NavBar__link_startScreen:hover {
+    background: #2BE080;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 768px) {
+    .NavBar__link_startScreen {
+        
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .NavBar__link_startScreen {
+        padding: 5px 12px 5px 12px;
+        margin-left: 2px;
+    }
+}

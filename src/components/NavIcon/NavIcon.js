@@ -16,11 +16,11 @@ function NavIcon ({titleIcon, iconStyle, NavTabText, NavTabStyle, href}) {
 
     return (
         <div>
-            <li style={iconStyle}>
+            <button style={iconStyle}>
                 <p style={NavTabStyle}>
                     <a style={NavTabText} className="NavTab__button-text" href={href} >{titleIcon}</a>
                 </p>
-            </li>
+            </button>
         </div>
     );
 }

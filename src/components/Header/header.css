@@ -1,27 +1,24 @@
 .header {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 18px;
     margin-bottom: 18px;
     border: 1px solid rgba(255, 44, 44, 0.7);
 }
 
 .header__logo {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 70px;
-
+    margin: 18px 8px 18px 70px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .header__logo {
-        padding-left: 30px;
-        
+        margin: 18px 8px 18px 30px;
     }
 }
 
 @media screen and (max-width:321px) {
     .header__logo {
-        padding-left: 14px;
-    
+        margin: 18px 8px 18px 14px;
     }
 }

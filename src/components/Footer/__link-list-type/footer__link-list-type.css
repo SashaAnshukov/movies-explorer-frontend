@@ -10,3 +10,9 @@
         /*margin-bottom: 32px;*/
     }
 }
+
+@media screen and (max-width:390x) {
+    .footer__link-list-type {
+        margin-bottom: 12px;
+    }
+}

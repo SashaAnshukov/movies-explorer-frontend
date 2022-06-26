@@ -19,6 +19,8 @@ function Techs () {
         width: 270,
         height: 60,
         width: 10,
+        border: 'none',
+        padding: 0
     }
 
     /*const mainStackStyle = {
@@ -71,13 +73,36 @@ function Techs () {
                 <h1 className="Promo__title">7 технологий</h1>
                 <p className="Techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
                 <section style= {Techs__elements}>
-                    <NavIcon titleIcon = {titleIcon.id1} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />
-                    <NavIcon titleIcon = {titleIcon.id2} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} /> 
-                    <NavIcon titleIcon = {titleIcon.id3} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />
-                    <NavIcon titleIcon = {titleIcon.id4} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />
-                    <NavIcon titleIcon = {titleIcon.id5} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />
-                    <NavIcon titleIcon = {titleIcon.id6} iconStyle = {styles} NavTabText = {NavTab__buttonText}NavTabStyle = {Techs__navTabStyle} />
-                    <NavIcon titleIcon = {titleIcon.id7} iconStyle = {styles} NavTabText = {NavTab__buttonText} NavTabStyle = {Techs__navTabStyle} />      
+                    <NavIcon 
+                        titleIcon = {titleIcon.id1} 
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />
+                    <NavIcon 
+                        titleIcon = {titleIcon.id2} 
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />
+                    <NavIcon 
+                        titleIcon = {titleIcon.id3} 
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />
+                    <NavIcon 
+                        titleIcon = {titleIcon.id4} 
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />
+                    <NavIcon 
+                        titleIcon = {titleIcon.id5} 
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />
+                    <NavIcon 
+                        titleIcon = {titleIcon.id6} 
+                        iconStyle = {styles} NavTabText = {NavTab__buttonText}
+                        NavTabStyle = {Techs__navTabStyle} 
+                    />      
                 </section>
 
             </MainStack>

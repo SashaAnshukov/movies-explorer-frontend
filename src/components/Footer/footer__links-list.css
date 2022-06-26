@@ -7,17 +7,21 @@
     padding-right: 70px;
     margin-top: 20px;
     margin-bottom: 20px;
+    
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
     .footer__links-list {
-        padding-right: 10px;
+        padding-right: 0;
+        margin-right: 30px;
     }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:390px) {
     .footer__links-list {
-        /*flex-direction: column;
-        padding-right: 30px;*/
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
     }
 }

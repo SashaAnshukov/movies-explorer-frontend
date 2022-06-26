@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import logo from '../../images/logo.svg';
 
 function Formlist ({title, name, onSubmit, buttonText, children}) {
@@ -6,7 +7,9 @@ function Formlist ({title, name, onSubmit, buttonText, children}) {
     return (
         <div className="FormList__container">
             <div className="FormList__logo">
-                <img  src={logo} alt="логотип Улыбка"/>
+                <Link to ="/">
+                    <img  src={logo} alt="логотип Улыбка"/>
+                </Link>
             </div>
             <h2 className="Formlist__title">{title}</h2>
 

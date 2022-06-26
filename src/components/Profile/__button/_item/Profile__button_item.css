@@ -1,4 +1,5 @@
 .Profile__button_item {
+    display: flex;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -13,6 +14,7 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
+    justify-items: center;
 }
 
 .Profile__button_item:hover {

@@ -4,6 +4,8 @@
 @import url('./components/App/App.css');
 
 @import url('./components/Header/header.css');
+@import url('./components/Opacity/opacity.css');
+@import url('./components/Preloader/Preloader.css');
 
 @import url('./components/FormList/__form/FormList__form');
 @import url('./components/FormList/__logo/FormList_logo.css');
@@ -21,6 +23,12 @@
 @import url('./components/FormComponent/__input/FormComponent__input.css');
 @import url('./components/FormComponent/__input/_type_error/popup__input_type_error.css');
 
+@import url('./components/Navbar/container/NavBar__container.css');
+@import url('./components/Navbar/__link/_startScreen/NavBar__link_startScreen.css');
+@import url('./components/Navbar/__link/_movies/NavBar__link_movies.css');
+@import url('./components/Navbar/__link/_profile/NavBar__link_profile.css');
+
+
 @import url('./components/Profile/Profile.css');
 @import url('./components/Profile/__title/Profile__title.css');
 @import url('./components/Profile/__label/Profile__label.css');
@@ -32,10 +40,20 @@
 @import url('./components/NotFound/__description/NotFound__description.css');
 @import url('./components/NotFound/__link/NotFound__link.css');
 
+@import url('./components/Movies/__elements/Movies__elements.css');
+@import url('./components/Movies/__search/Movies__search.css');
+@import url('./components/Movies/__separator-line/Movies__separator-line.css');
+@import url('./components/Movies/__checkbox/Movies__checkbox.css');
+@import url('./components/Movies/__checkbox/_name/Movies__checkbox_name.css');
+@import url('./components/Movies/__add-button/Movies__add-button.css');
+
 @import url('./components/MoviesCard/MoviesCard.css');
+@import url('./components/MoviesCard/__mesto-like/MoviesCard__mesto-like.css');
+@import url('./components/MoviesCard/__mesto-like/_active/rectangle__mesto-like_active.css');
 @import url('./components/MoviesCard/__image/MoviesCard__image.css');
 @import url('./components/MoviesCard/__info/MoviesCard__info.css');
 @import url('./components/MoviesCard/__text/MoviesCard__text.css');
+@import url('./components/MoviesCard/__duration/MoviesCard__duration.css');
 @import url('./components/MoviesCard/__trash/MoviesCard__trash.css');
 
 
@@ -49,7 +67,8 @@
 @import url('./components/Portfolio/Portfolio.css');
 
 @import url('./components/Footer/footer.css');
-@import url('./components/Footer/footer__copyright.css');
-@import url('./components/Footer/footer__link.css');
-@import url('./components/Footer/footer__links-list.css');
-@import url('./components/Footer/footer__link-list-type.css');
+@import url('./components/Footer/__description/footer__description.css');
+@import url('./components/Footer/__copyright/footer__copyright.css');
+@import url('./components/Footer/__link/footer__link.css');
+@import url('./components/Footer/__links-list/footer__links-list.css');
+@import url('./components/Footer/__link-list-type/footer__link-list-type.css');

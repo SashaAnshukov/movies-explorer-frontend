@@ -3,13 +3,17 @@
     font-size: 13px;
     line-height: 16px;
     text-decoration: none;
-    padding-left: 18px;
+    padding-left: 20px;
 }
 
 @media screen and (max-width:767px) {
     .footer__link {
         /*font-size: 24px;
         line-height: 24px;*/
-        padding-right: 20px;
+    }
+}
+@media screen and (max-width:390px) {
+    .footer__link {
+        text-align: center;
     }
 }
