@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NavIcon ({titleIcon, iconStyle, NavTabText, NavTabStyle, href}) {
+function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, href}) {
     
     /*const anchors = document.querySelectorAll('[href]')
     for (let anchor of anchors) {
@@ -15,13 +15,13 @@ function NavIcon ({titleIcon, iconStyle, NavTabText, NavTabStyle, href}) {
     }*/
 
     return (
-        <div>
-            <button style={iconStyle}>
-                <p style={NavTabStyle}>
-                    <a style={NavTabText} className="NavTab__button-text" href={href} >{titleIcon}</a>
+        <>
+            <button className={iconStyle}>
+                <p className={navTabStyle}>
+                    <a className={textStyle} href={href} >{titleIcon}</a>
                 </p>
             </button>
-        </div>
+        </>
     );
 }
 

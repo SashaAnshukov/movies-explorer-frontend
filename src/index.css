@@ -28,6 +28,12 @@
 @import url('./components/Navbar/__link/_movies/NavBar__link_movies.css');
 @import url('./components/Navbar/__link/_profile/NavBar__link_profile.css');
 
+@import url('./components/NavTab/NavTab.css');
+@import url('./components/NavTab/__buttonText/NavTab__buttonText.css');
+@import url('./components/NavTab/__icon/NavTab__icon.css');
+@import url('./components/NavTab/__elements/navTab__elements.css');
+@import url('./components/NavTab/__techs/NavTab__techs.css');
+
 
 @import url('./components/Profile/Profile.css');
 @import url('./components/Profile/__title/Profile__title.css');
@@ -59,6 +65,7 @@
 
 @import url('./components/Main/Main.css');
 @import url('./components/Promo/Promo.css');
+@import url('./components/Promo/__title/Promo__title.css');
 @import url('./components/NavTab/NavTab.css');
 @import url('./components/MainStack/MainStack.css');
 @import url('./components/AboutProject/AboutProject.css');

@@ -1,0 +1,17 @@
+.NavTab__techs {
+    display: flex;
+    justify-content: center;
+    width: 96px;
+    height: 36px;
+    border-radius: 10px;
+    margin: 0;
+    background-color: #E8E8E8;
+    border: none;
+}
+
+@media screen and (max-width: 321px) {
+    .NavTab__techs {
+        width: 82px;
+        border-radius: 6px;
+    }
+}

@@ -1,0 +1,8 @@
+.NavTab__icon {
+    display: flex;
+    height: 36px;
+    width: 10px;
+    border: none;
+    padding: 0;
+    margin: 0;
+}

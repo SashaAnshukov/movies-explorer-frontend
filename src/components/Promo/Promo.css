@@ -1,7 +1,8 @@
 .Promo {
     background-color: #F5F5F5;
     border-radius: 10px;
-    width: 1200px;
+    max-width: 1200px;
+    width: 93.75vw;
     padding-top: 160px;
     padding-bottom: 0;
     margin-left: auto;
@@ -9,15 +10,16 @@
     border: 1px solid rgba(255, 44, 44, 0.7)
 }
 
-.Promo__title {
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 58px;
-    text-align: center;
-    width: 730px;
-    padding-top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 0px;
+@media screen and (max-width: 768px) {
+    .Promo {
+        /*max-width: 728px;*/
+        padding-top: 350px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Promo {
+        /*max-width: 292px;*/
+        padding-top: 220px;
+    }
 }
