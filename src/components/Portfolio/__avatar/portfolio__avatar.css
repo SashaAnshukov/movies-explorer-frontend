@@ -1,0 +1,26 @@
+.portfolio__avatar {
+    max-width: 270px;
+    min-height: 327px;
+    object-fit: cover;
+    margin-top: 66px;
+    /*margin-right: 30px;*/
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__avatar {
+        max-width: 255px;
+        min-height: 307px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__avatar {
+        max-width: 292px;
+        min-height: 352px;
+        display: flex;
+        justify-content: center;
+        margin: 60px auto 0 auto;
+    }
+}

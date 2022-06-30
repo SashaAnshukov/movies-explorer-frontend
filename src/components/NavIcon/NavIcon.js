@@ -16,7 +16,7 @@ function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, href}) {
 
     return (
         <>
-            <button className={iconStyle}>
+            <button className={iconStyle} type="button">
                 <p className={navTabStyle}>
                     <a className={textStyle} href={href} >{titleIcon}</a>
                 </p>

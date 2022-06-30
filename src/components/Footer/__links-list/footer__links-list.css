@@ -20,6 +20,7 @@
 @media screen and (max-width:390px) {
     .footer__links-list {
         margin-top: 30px;
+        margin-right: 0;
         flex-direction: column;
         align-items: center;
         margin-bottom: 0;

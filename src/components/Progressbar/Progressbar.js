@@ -3,34 +3,34 @@ import React from 'react';
 const ProgressBar = ({ completeColor, completed, titleBar1, titleBar2, spanBar1, spanBar2 }) => {
 
 
-    const fillerStyles = {
+    const ProgressLineOne = {
         width: `${completed}%`,
         backgroundColor: completeColor,
     }
     
-    const fillerStyles2 = {
+    const ProgressLineTwo = {
         width: `${'100' - completed}%`,
     }
 
-    const fillerStyles3 = {
+    const ProgressLineSpanOne = {
         width: `${completed}%`,
     }
 
     return (
         <div>
             <div className="ProgressBar">
-                <div style={fillerStyles}>
+                <div style={ProgressLineOne}>
                     <p className="ProgressBar__text">{titleBar1}</p>
                 </div>
-                <div style={fillerStyles2}>
+                <div style={ProgressLineTwo}>
                     <p className="ProgressBar__text">{titleBar2}</p>
                 </div>
             </div>
             <div className="ProgressBar">
-                <div style={fillerStyles3}>
+                <div style={ProgressLineSpanOne}>
                     <span className="ProgressBar__span">{spanBar1}</span>
                 </div>
-                <div style={fillerStyles2}>
+                <div style={ProgressLineTwo}>
                     <span className="ProgressBar__span">{spanBar2}</span>
                 </div>
             </div>

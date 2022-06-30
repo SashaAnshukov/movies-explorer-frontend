@@ -1,5 +1,5 @@
 .AboutProject {
-    width: 1140px;
+    max-width: 1140px;
     display: flex;
     flex-direction: row;
     margin-left: auto;
@@ -7,45 +7,16 @@
     border: 1px solid rgba(255, 44, 44, 0.7);
 }
 
-.AboutProject__title {
-    width: 550px;
-    display: flex;
-    flex-direction: row;
-    margin-right: 40px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: -0.04em;
-    color: #000000;
-    border: 1px solid rgba(255, 44, 44, 0.7);
+@media screen and (max-width: 768px) {
+    .AboutProject{
+        max-width: 668px;
+    }
 }
 
-.AboutProject__title:last-child {
-    margin-right: 0;
+@media screen and (max-width: 321px) {
+    .AboutProject{
+        max-width: 284px;
+        flex-direction: column;
+        margin: 0;
+    }
 }
-
-.AboutProject__description {
-    width: 550px;
-    display: flex;
-    flex-direction: row;
-    margin-right: 40px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0;
-    color: #000000;
-    border: 1px solid rgba(255, 44, 44, 0.7);
-}
-
-.AboutProject__description:last-child {
-    margin-right: 0;
-}
-
-/*.AboutProject__progressData {
-    position: absolute;
-    display: block;
-    width: 100%;
-    color: black;
-}*/

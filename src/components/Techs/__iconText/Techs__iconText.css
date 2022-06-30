@@ -1,0 +1,27 @@
+.Techs__iconText {
+    color: #000000;
+    font-style: normal;
+    display: flex;
+    min-width: 96px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 768px) {
+    .Techs__iconText{
+        min-width: 84px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Techs__iconText{
+        
+    }
+}

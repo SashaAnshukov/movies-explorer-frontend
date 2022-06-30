@@ -1,0 +1,23 @@
+.portfolio__info {
+    display: grid;
+    column-gap: 270px;
+    align-items: baseline;
+}
+
+@media screen and (max-width: 1080px) {
+    .portfolio__info {
+        column-gap: 149px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__info {
+        column-gap: 49px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__info {
+        
+    }
+}

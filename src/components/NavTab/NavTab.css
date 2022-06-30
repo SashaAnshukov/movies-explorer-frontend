@@ -5,48 +5,4 @@
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
-    border: 1px solid rgba(255, 44, 44, 0.7);
 }
-
-.NavTab__list { 
-    display: flex; 
-    width: 308px; 
-    margin-top: 151px; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-bottom: 22px; 
-    justify-content: space-between; 
-    border: 1px dashed red; 
-} 
-
-.NavTab__link-list-type { 
-    display: flex; 
-    width: 270px; 
-    height: 38px; 
-    z-index: 0; 
-    /*border: 1px dashed rgb(255, 178, 13);*/ 
-}
-
-/*.NavTab__button { 
-    display: flex;
-    justify-content: center;
-    width: 96px; 
-    height: 36px;
-    border-radius: 10px;
-    margin: 0;
-    background-color: #E8E8E8; 
-    border: none;
-}*/
-
-/*.NavTab__button-text {
-    color: #000000;
-    font-style: normal;
-    display: flex;
-    min-width: 96px;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-}*/

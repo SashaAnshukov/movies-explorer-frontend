@@ -1,45 +1,6 @@
 .Techs {
     background-color: #F5F5F5;
-}
-
-.Techs__description{
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    width: 460px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 26px;
-    margin-bottom: 100px;
-    letter-spacing: -0.04em;
-    color: #000000;
 }
-
-/*.Techs__elements{
-    display: grid;
-    grid-template-columns: repeat(3, 282px);
-    /*grid-template-rows: repeat(2, 361px);
-    row-gap: 20px;
-    column-gap: 17px;
-    margin-left: 50px;
-    margin-right: 50px;
-}*/
-
-/*main {
-    width: 100vw;
-    height: 100vh;
-    background-color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 24px;
-    row-gap: 24px;
-    align-content: center;
-    justify-items: center;
-}*/

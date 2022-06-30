@@ -11,10 +11,12 @@ function Portfolio () {
         link2: 'https://github.com/SashaAnshukov',
         titleItem: 'Портфолио',
         item1: 'Статичный сайт',
+        linkStatic: 'https://github.com/SashaAnshukov/how-to-learn/blob/main/index.html',
         item2: 'Адаптивный сайт',
+        linkAdaptive: 'https://sashaanshukov.github.io/russian-travel3/#',
         item3: 'Одностраничное приложение',
+        linkSinglePageApp: 'https://sashaanshukov.github.io/mesto/'
     }
-    
     
     return (
         <div>
@@ -41,15 +43,15 @@ function Portfolio () {
                             <p className="portfolio__title-item">{text.titleItem}</p>
                             <div className="portfolio__item">
                                 <a className="portfolio__item-web">{text.item1}</a>
-                                <a className="portfolio__item-web">↗</a>
+                                <a href = {text.linkStatic} className="portfolio__item-web">↗</a>
                             </div>
                             <div className="portfolio__item">
                                 <a className="portfolio__item-web">{text.item2}</a>
-                                <a className="portfolio__item-web">↗</a>
+                                <a href = {text.linkAdaptive} className="portfolio__item-web">↗</a>
                             </div>
                             <div className="portfolio__item">
                                 <a className="portfolio__item-web">{text.item3}</a>
-                                <a className="portfolio__item-web">↗</a>
+                                <a href = {text.linkSinglePageApp} className="portfolio__item-web">↗</a>
                             </div>
                             <div className = "portfolio__holder">
                             <div className = "portfolio__round">

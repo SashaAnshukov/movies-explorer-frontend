@@ -1,0 +1,27 @@
+.portfolio__title-item {
+    color: #A0A0A0;
+    max-width: 250px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    mix-blend-mode: normal;
+    margin-top: 100px;
+    margin-bottom: 29px;
+    grid-column-start: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__title-item {
+        margin-top: 90px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__title-item {
+        font-size: 14px;
+        max-width: 292px;
+        margin-top: 69px;
+        margin-bottom: 19px;
+    }
+}

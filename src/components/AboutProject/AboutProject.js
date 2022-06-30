@@ -26,13 +26,13 @@ function AboutProject () {
 
     return (
         <MainStack stackName = {'О проекте'} id ='О_проекте'>
-            <div>
-                <div className="AboutProject" >
+            <div className="AboutProject" >
+                <div className="About__section">
                     <p className="AboutProject__title">{text.titleName1}</p>
-                    <p className="AboutProject__title">{text.titleName2}</p>
-                </div>
-                <div className="AboutProject">
                     <p className="AboutProject__description">{text.description1}</p>
+                </div>
+                <div className="About__section">
+                    <p className="AboutProject__title">{text.titleName2}</p>
                     <p className="AboutProject__description">{text.description2}</p>
                 </div>
             </div>

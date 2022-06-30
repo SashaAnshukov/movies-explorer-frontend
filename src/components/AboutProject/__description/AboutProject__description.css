@@ -1,0 +1,32 @@
+.AboutProject__description {
+    max-width: 550px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #000000;
+    border: 1px solid rgba(255, 44, 44, 0.7);
+}
+
+.AboutProject__description:last-child {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .AboutProject__description {
+        max-width: 319px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .AboutProject__description {
+        margin: 16px 0 0 0;
+        max-width: 284px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+}

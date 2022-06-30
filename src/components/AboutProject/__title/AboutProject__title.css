@@ -1,0 +1,29 @@
+.AboutProject__title {
+    max-width: 550px;
+    display: flex;
+    flex-direction: row;
+    margin: 70px 0 26px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    border: 1px solid rgba(255, 44, 44, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+    .AboutProject__title {
+        max-width: 319px
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .AboutProject__title {
+        max-width: 284px;
+        margin: 0;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -0.04em;
+    }
+}
