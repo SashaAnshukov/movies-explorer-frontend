@@ -1,8 +1,30 @@
 .FormList__logo {
     display: flex;
-    width: 396px;
+    max-width: 396px;
+    height: 38px;
     align-items: flex-start;
     margin-top: 70px;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .FormList__logo {
+        margin-top: 232px;
+    }
+}
+
+@media screen and (max-width: 428px) {
+    .FormList__logo {
+        max-width: 280px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .FormList__logo {
+        margin-top: 56px;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

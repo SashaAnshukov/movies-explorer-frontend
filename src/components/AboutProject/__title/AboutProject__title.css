@@ -9,7 +9,6 @@
     line-height: 24px;
     letter-spacing: -0.04em;
     color: #000000;
-    border: 1px solid rgba(255, 44, 44, 0.7);
 }
 
 @media screen and (max-width: 768px) {

@@ -6,12 +6,6 @@
     margin: 0 auto 12px auto;
 }
 
-@media screen and (max-width:767px) {
-    .footer__link-list-type {
-        /*margin-bottom: 32px;*/
-    }
-}
-
 @media screen and (max-width:390x) {
     .footer__link-list-type {
         margin-bottom: 12px;

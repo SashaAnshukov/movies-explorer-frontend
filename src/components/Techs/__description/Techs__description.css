@@ -17,12 +17,6 @@
     }
 }
 
-@media screen and (max-width: 340px) {
-    .Techs__description {
-        
-    }
-}
-
 @media screen and (max-width: 321px) {
     .Techs__description {
         max-width: 292px;

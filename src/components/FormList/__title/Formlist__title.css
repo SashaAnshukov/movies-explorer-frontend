@@ -1,6 +1,6 @@
 .Formlist__title {
     display: flex;
-    width: 396px;
+    max-width: 396px;
     margin-left: auto;
     margin-right: auto;
     align-items: flex-start;
@@ -8,18 +8,24 @@
     margin-top: 40px;
     margin-bottom: 0;
     padding-bottom: 16px;
-    text-align: center;
+    font-weight: 500;
     font-style: normal;
-    line-height: 29px;
     font-size: 24px;
+    line-height: 29px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 428px) {
     .Formlist__title {
-        margin-top: 25px;
-        margin-left: 22px;
-        margin-right: 22px;
-        font-size: 18px;
-        line-height: 22px;
+        max-width: 280px;
     }
 }
+
+@media screen and (max-width: 321px) {
+    .Formlist__title {
+        max-width: 260px;
+        margin: 50px auto 0 auto;
+        justify-content: center;
+        padding-bottom: 56px;
+    }
+}
+

@@ -1,0 +1,17 @@
+.Profile__input {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;  
+    background-color:#ffffff;
+    box-sizing: border-box;
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 13px;
+    margin: 0;
+    padding: 0 0 16px 0;
+    border: none;
+    outline: none;
+    direction:rtl
+}

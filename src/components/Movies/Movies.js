@@ -131,10 +131,10 @@ function Movies(
     return (
         <main>
             
-            <div className="page__container">
+            <div className="Movies__container">
 
                 <form className="Movies__search" onSubmit={handleSubmit}>
-                    <div className= "Movies__search_fa">
+                    <div className= "Movies__search-input">
                         <input 
                             type="text" className="Movies__search-field"
                             placeholder="Фильм" value ={query}
@@ -145,6 +145,8 @@ function Movies(
                         </div>
                     </div>
                     <button className="Movies__search-button" type="submit" />
+                </form>
+                <div className="Movies__search-checkbox">
                     <h2 className="Movies__separator-line"></h2>
                     <input
                         className="Movies__checkbox"
@@ -152,8 +154,9 @@ function Movies(
                         onChange={ ()=> updateShortCards (!shortCards)}
                     />
                     <h2 className="Movies__checkbox_name"> Короткометражки </h2>
-                </form>
-                
+                </div>
+            </div>
+            
                 <section className="Movies__elements">
                     {searchResult.slice (0, countFilms)
                     .map ((card) => {
@@ -170,7 +173,7 @@ function Movies(
                             Ещё
                     </button>   
                 )}
-            </div>
+            
         </main>
     );
 }

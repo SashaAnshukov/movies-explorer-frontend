@@ -11,16 +11,20 @@
     text-align: center;
     font-weight: 500;
     font-style: normal;
-    line-height: 29px;
     font-size: 24px;
+    line-height: 29px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
     .Profile__title {
-        margin-top: 25px;
-        margin-left: 22px;
-        margin-right: 22px;
-        font-size: 18px;
-        line-height: 22px;
+        margin-top: 236px;
+        margin-bottom: 96px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Profile__title {
+        margin-top: 70px;
+        margin-bottom: 80px;
     }
 }

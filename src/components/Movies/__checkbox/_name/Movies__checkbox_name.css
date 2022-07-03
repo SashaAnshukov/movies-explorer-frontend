@@ -7,3 +7,9 @@
     align-self: center;
     color:#000000;
 }
+
+@media screen and (max-width: 321px) {
+    .Movies__checkbox_name {
+        font-size: 11px;
+    }
+}

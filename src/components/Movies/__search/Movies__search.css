@@ -1,47 +1,51 @@
-.Movies__search{
+.Movies__search {
     display: flex;
-    width: 1140px;
     justify-content: center;
-    margin: 70px auto 80px auto;
     background: #F9F9F9;
-    border-radius: 9px;
+    border-radius: 9px 0 0 9px;
 }
 
-.Movies__search-button{
-    border-radius: 50px;
-    padding: 0;
-    width: 34px;
-    height: 34px;
-    border:none;
-    align-self: center;
-    cursor: pointer;
-    background: url("../../../images/find.svg");
-    margin-right: 30px;
+/*@media screen and (max-width: 1100px) {
+    .Movies__search {
+        width: 85.9091vw;
+    }
+}*/
+
+@media screen and (max-width: 768px) {
+    .Movies__search {
+        width: 92.1875vw;
+    }
 }
 
-.Movies__search_fa {
-    display: inline-flex;
-    padding: 10px;
+@media screen and (max-width: 666px) {
+    .Movies__search {
+        border-radius: 9px;
+    }
 }
 
-.Movies__search-icon {
-    background: url("../../../images/searc-icon.svg");
-    width: 34px;
-    height: 34px;
-    margin-right: 10px;
-    order: -1;
+@media screen and (max-width: 321px) {
+    .Movies__search {
+        width: 93.75vw;
+    }
 }
 
-.Movies__search-field {
-    width: 750px;
-    background: #F9F9F9;
-    border: 0;
-}
+/*
+1280px - 100vw
+1140px - 89.0625vw
 
-.Movies__search-field:focus {
-    outline: none;
-}
+1100px - 100vw
+945px - 85.9091vw
 
-.Movies__search-field:focus + .search-icon {
-    display: none;
-}
+1280 - 100%
+1100 - 85.9375%
+
+
+768px - 100vw
+708px - 92.1875vw
+
+320px - 100vw
+300px - 93.75vw
+
+*/
+
+

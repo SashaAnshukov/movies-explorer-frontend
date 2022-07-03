@@ -28,11 +28,14 @@ input:-webkit-autofill,
     transition: background-color 600000s 0s, color 600000s 0s;
   }
 
-@media screen and (max-width: 650px) {
-    .FormComponent__input {
-        min-width: 238px;
-        margin-top: 0;
-        margin-left: 22px;
-        margin-right: 22px;
-    }
+@media screen and (max-width: 428px) {
+  .FormComponent__input {
+      min-width: 280px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .FormComponent__input {
+      min-width: 260px;
+  }
 }

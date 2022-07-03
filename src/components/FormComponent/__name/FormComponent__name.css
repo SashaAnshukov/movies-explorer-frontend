@@ -13,3 +13,15 @@
     line-height: 12px;
     color: #A0A0A0;
 }
+
+@media screen and (max-width: 428px) {
+    .FormComponent__name {
+        max-width: 280px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .FormComponent__name {
+        max-width: 260px;
+    }
+}

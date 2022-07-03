@@ -1,8 +1,17 @@
 .NavBar__container {
+    width: 100%;
     display: flex;
     align-self: center;
+    justify-content: space-between;
     margin-right: 70px;
     height: 32px;
+    border: 1px solid rgba(255, 44, 44, 0.7);
+}
+
+@media screen and (max-width: 1024px) {
+    .NavBar__container {
+        justify-content: flex-end;
+    }
 }
 
 @media screen and (max-width: 768px) {

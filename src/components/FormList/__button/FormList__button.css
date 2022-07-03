@@ -33,14 +33,16 @@
     /*-webkit-user-select: none;*/
 }
 
-@media screen and (max-width: 650px) {
+
+@media screen and (max-width: 428px) {
     .FormList__button {
-        min-width: 238px;
-        min-height: 46px;
-        font-size: 14px;
-        line-height: 17px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 25px;
+    min-width: 280px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .FormList__button {
+        margin-top: 157px;
+        min-width: 260px;
     }
 }

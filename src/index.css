@@ -23,6 +23,7 @@
 @import url('./components/FormComponent/__input/FormComponent__input.css');
 @import url('./components/FormComponent/__input/_type_error/popup__input_type_error.css');
 
+@import url('./components/Navbar/Navbar.css');
 @import url('./components/Navbar/container/NavBar__container.css');
 @import url('./components/Navbar/__link/_startScreen/NavBar__link_startScreen.css');
 @import url('./components/Navbar/__link/_movies/NavBar__link_movies.css');
@@ -38,6 +39,9 @@
 
 
 @import url('./components/Profile/Profile.css');
+@import url('./components/Profile/__input/Profile__input.css');
+@import url('./components/Profile/__input/_name/Profile__input_name.css');
+
 @import url('./components/Profile/__title/Profile__title.css');
 @import url('./components/Profile/__label/Profile__label.css');
 @import url('./components/Profile/__button/Profile__button.css');
@@ -49,7 +53,16 @@
 @import url('./components/NotFound/__link/NotFound__link.css');
 
 @import url('./components/Movies/__elements/Movies__elements.css');
+@import url('./components/Movies/__container/Movies__container.css');
 @import url('./components/Movies/__search/Movies__search.css');
+@import url('./components/Movies/__search-checkbox/__search-checkbox.css');
+@import url('./components/Movies/__search-button/Movies__search-button.css');
+@import url('./components/Movies/__search-icon/Movies__search-icon.css');
+@import url('./components/Movies/__search-input/Movies__search-input.css');
+@import url('./components/Movies/__search-field/Movies__search-field.css');
+
+
+
 @import url('./components/Movies/__separator-line/Movies__separator-line.css');
 @import url('./components/Movies/__checkbox/Movies__checkbox.css');
 @import url('./components/Movies/__checkbox/_name/Movies__checkbox_name.css');

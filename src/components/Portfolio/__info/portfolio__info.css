@@ -15,9 +15,3 @@
         column-gap: 49px;
     }
 }
-
-@media screen and (max-width: 321px) {
-    .portfolio__info {
-        
-    }
-}

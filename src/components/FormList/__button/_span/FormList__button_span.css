@@ -4,17 +4,22 @@
     text-align: center;
     font-style: normal;
     margin-top: 16px;
-    margin-bottom: 0;
+    margin-bottom: 70px;
     font-size: 14px;
     line-height: 17px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
     .FormList__button_span {
-        margin-top: 25px;
-        margin-left: 22px;
-        margin-right: 22px;
-        font-size: 18px;
-        line-height: 22px;
+        margin-bottom: 232px;
+    }
+}
+
+@media screen and (max-width:321px) {
+    .FormList__button_span {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 14px;
+        margin-bottom: 30px;
     }
 }
