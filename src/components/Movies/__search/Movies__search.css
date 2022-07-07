@@ -26,6 +26,8 @@
 @media screen and (max-width: 321px) {
     .Movies__search {
         width: 93.75vw;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

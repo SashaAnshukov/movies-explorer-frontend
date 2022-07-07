@@ -5,3 +5,9 @@
     margin-right: 10px;
     order: -1;
 }
+
+@media screen and (max-width: 321px) {
+    .Movies__search-icon {
+        display: none;
+    }
+}

@@ -1,19 +1,25 @@
 import React from 'react';
 
-const ProgressBar = ({ completeColor, completed, titleBar1, titleBar2, spanBar1, spanBar2 }) => {
+const ProgressBar = ({ completeColor, notCompleteColor, completed, titleBar1, titleBar2, spanBar1, spanBar2 }) => {
 
 
     const ProgressLineOne = {
         width: `${completed}%`,
-        backgroundColor: completeColor,
+        backgroundColor: completeColor
     }
     
     const ProgressLineTwo = {
         width: `${'100' - completed}%`,
+        backgroundColor: notCompleteColor
     }
 
     const ProgressLineSpanOne = {
-        width: `${completed}%`,
+        width: `${completed}%`
+    }
+
+    const ProgressLineSpanTwo = {
+        width: `${'100' - completed}%`,
+
     }
 
     return (
@@ -30,7 +36,7 @@ const ProgressBar = ({ completeColor, completed, titleBar1, titleBar2, spanBar1,
                 <div style={ProgressLineSpanOne}>
                     <span className="ProgressBar__span">{spanBar1}</span>
                 </div>
-                <div style={ProgressLineTwo}>
+                <div style={ProgressLineSpanTwo}>
                     <span className="ProgressBar__span">{spanBar2}</span>
                 </div>
             </div>

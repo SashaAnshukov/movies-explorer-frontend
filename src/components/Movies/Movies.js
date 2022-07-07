@@ -137,14 +137,14 @@ function Movies(
                     <div className= "Movies__search-input">
                         <input 
                             type="text" className="Movies__search-field"
-                            placeholder="Фильм" value ={query}
+                            placeholder="Фильм" value ={query} required
                             onChange = {(event)=> updateQuery(event.target.value)} 
                         />
                         <div 
                             alt="" className="Movies__search-icon">
                         </div>
                     </div>
-                    <button className="Movies__search-button" type="submit" />
+                    <button className="Movies__search-button opacity-buttons" type="submit" />
                 </form>
                 <div className="Movies__search-checkbox">
                     <h2 className="Movies__separator-line"></h2>

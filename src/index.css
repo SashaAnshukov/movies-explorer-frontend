@@ -4,7 +4,7 @@
 @import url('./components/App/App.css');
 
 @import url('./components/Header/header.css');
-@import url('./components/Opacity/opacity.css');
+@import url('./components/opacity-buttons/opacity-buttons.css');
 @import url('./components/Preloader/Preloader.css');
 
 @import url('./components/FormList/__form/FormList__form');
@@ -16,7 +16,6 @@
 
 @import url('./components/FormComponent/__label/FormComponent__label.css');
 @import url('./components/FormComponent/__name/FormComponent__name.css');
-
 
 @import url('./components/Login/Login.css');
 

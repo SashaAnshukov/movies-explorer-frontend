@@ -10,3 +10,16 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+@media screen and (max-width: 768px) {
+    .MoviesCard__text{
+        max-width: 250px;
+        /*margin: 14px 31px 9px 14px;*/
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .MoviesCard__text{
+        max-width: 210px;
+    }
+}

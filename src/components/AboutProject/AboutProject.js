@@ -16,7 +16,8 @@ function AboutProject () {
     }
 
     const data = [{ 
-        completeColor: "#2BE080", 
+        completeColor: '#2BE080',
+        notCompleteColor: '#F2F2F2',  
         completed: 20, 
         titleBar1: '1 неделя',
         titleBar2: '4 недели', 
@@ -41,6 +42,7 @@ function AboutProject () {
                     <ProgressBar 
                         key={id} 
                         completeColor={item.completeColor}
+                        notCompleteColor={item.notCompleteColor}
                         completed={rangeOfValues(0, item.completed, 100)}
                         titleBar1={item.titleBar1}
                         titleBar2={item.titleBar2}

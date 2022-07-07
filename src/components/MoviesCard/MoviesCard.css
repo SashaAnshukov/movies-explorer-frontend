@@ -3,10 +3,9 @@
     /*width: 100%;*/
     margin: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: min-content min-content;
+    /*grid-template-rows: min-content min-content;*/
     /*row-gap: 10px;*/
     background-color: #FFFFFF;
     overflow: hidden;
-    border: 1px solid rgba(255, 44, 44, 0.7);
 }
 

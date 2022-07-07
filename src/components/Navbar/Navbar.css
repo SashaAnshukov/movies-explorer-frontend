@@ -100,6 +100,12 @@
   z-index: 50;
 }
 
+@media screen and (max-width: 520px) {
+  .menu__box {
+    width: 100%;
+  }
+}
+
 .menu__item {
   display: flex;
   justify-content: center;

@@ -49,6 +49,7 @@ function App() {
         <Route exact path='/sign-in' element = {<Login authorization = {authorization} />} />
         <Route exact path='/profile' element = {<Profile signOut={signOut}/>} />
         <Route exact path='/movies/*' element = {<Movies />} />
+        <Route exact path='/saved-movies/*' element = {<Movies />} />
         <Route exact path='/404' element = {<NotFound />} />
 
         <Route path="/"

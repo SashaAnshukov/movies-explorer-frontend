@@ -33,8 +33,13 @@
 
 @media screen and (max-width: 720px) {
     .Movies__elements {
-        grid-template-columns: repeat(1, 300px);
+        grid-template-columns: repeat(1, 339px);
         row-gap: 16px;
-        /*grid-template-rows: repeat(3, 361px);*/
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Movies__elements {
+        grid-template-columns: repeat(1, 300px);
     }
 }

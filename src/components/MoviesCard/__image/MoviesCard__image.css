@@ -13,3 +13,9 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width: 321px) {
+    .MoviesCard__image {
+        max-width: 300px;
+    }
+}

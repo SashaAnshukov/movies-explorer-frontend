@@ -8,13 +8,17 @@
     line-height: 20px;
 }
 
-.Movies__search-field:focus {
+.Movies__search-field:focus-visible {
+    border-bottom: 1px solid #2BE080;
+    transition: 0,5;
     outline: none;
+    transition: 0.55s;
 }
 
-.Movies__search-field:focus + .search-icon {
-    display: none;
-}
+
+/*.Movies__search-field:focus + .search-icon {
+    outline: #2BE080;
+}*/
 
 @media screen and (max-width: 1100px) {
     .Movies__search-field {
