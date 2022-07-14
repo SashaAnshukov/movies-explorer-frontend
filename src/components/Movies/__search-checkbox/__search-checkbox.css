@@ -1,0 +1,14 @@
+.Movies__search-checkbox {
+    display: flex;
+    flex-direction: row;
+    background: #F9F9F9;
+    border-radius: 0 9px 9px 0;
+}
+
+@media screen and (max-width: 666px) {
+    .Movies__search-checkbox {
+        background: #ffffff;
+        align-self: center;
+        margin-top: 45px;
+    }
+}

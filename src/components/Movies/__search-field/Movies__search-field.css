@@ -1,0 +1,74 @@
+.Movies__search-field {
+    width: 58.59375vw;
+    max-width: 786px;
+    background: #F9F9F9;
+    border: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.Movies__search-field:focus-visible {
+    border-bottom: 1px solid #2BE080;
+    transition: 0,5;
+    outline: none;
+    transition: 0.55s;
+}
+
+
+/*.Movies__search-field:focus + .search-icon {
+    outline: #2BE080;
+}*/
+
+@media screen and (max-width: 1100px) {
+    .Movies__search-field {
+        width: 49vw;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .Movies__search-field {
+        width: 45vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Movies__search-field {
+        width: 44.01042vw;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .Movies__search-field {
+        width: 66vw;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .Movies__search-field {
+        width: 55vw;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Movies__search-field {
+        width: 56.875vw;
+        font-size: 14px;
+    }
+}
+
+/*1280px - 100vw
+740px - 58.59375vw
+
+1100px - 100vw
+945px - 85.9091vw
+
+1280 - 100%
+1100 - 85.9375%
+
+768px - 100vw
+338px - 44.01042vw
+
+320px - 100vw
+182px - 56.875vw
+*/

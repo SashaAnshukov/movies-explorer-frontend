@@ -1,0 +1,6 @@
+.NavTab__link-list-type { 
+    display: flex; 
+    width: 270px; 
+    height: 38px; 
+    z-index: 0; 
+}

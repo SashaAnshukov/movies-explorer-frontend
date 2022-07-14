@@ -1,0 +1,27 @@
+.MainStack__title {
+    max-width: 100%;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 110px 0 0 0;
+    padding-bottom: 23px;
+    border-bottom: 1px solid#000000;
+}
+
+@media screen and (max-width: 768px) {
+    .MainStack__title {
+        margin: 90px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .MainStack__title {
+        max-width: 284px;
+        margin: 70px 0 0x 0;
+        padding-bottom: 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

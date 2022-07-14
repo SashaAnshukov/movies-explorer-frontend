@@ -1,0 +1,14 @@
+.footer__link {
+    color: #000000;
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: none;
+    
+    
+}
+
+@media screen and (max-width:390px) {
+    .footer__link {
+        text-align: center;
+    }
+}

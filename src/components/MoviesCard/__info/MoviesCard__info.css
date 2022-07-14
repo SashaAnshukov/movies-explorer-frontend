@@ -1,0 +1,20 @@
+.MoviesCard__info {
+    max-width: 364px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .MoviesCard__info {
+        max-width: 339px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .MoviesCard__info {
+        max-width: 300px;
+    }
+}

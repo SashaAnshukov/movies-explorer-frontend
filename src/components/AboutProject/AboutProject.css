@@ -1,0 +1,21 @@
+.AboutProject {
+    max-width: 1140px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .AboutProject{
+        max-width: 668px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .AboutProject{
+        max-width: 284px;
+        flex-direction: column;
+        margin: 0;
+    }
+}

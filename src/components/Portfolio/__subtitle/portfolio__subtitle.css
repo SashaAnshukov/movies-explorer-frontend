@@ -1,0 +1,37 @@
+.portfolio__subtitle {
+    color: #000000;
+    max-width: 600px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    mix-blend-mode: normal;
+    justify-self: flex-start;
+    margin-top: 18px;
+    margin-bottom: 26px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__subtitle {
+        max-width: 348px;
+        font-size: 12px;
+        line-height: 18px;
+        margin-top: 16px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__subtitle {
+        max-width: 292px;
+        font-size: 11px;
+        line-height: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

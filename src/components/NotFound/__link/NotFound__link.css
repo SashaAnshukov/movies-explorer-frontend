@@ -1,0 +1,9 @@
+.NotFound__link {
+    text-decoration:none;
+    color:#2BE080;
+    margin-bottom: 60px;
+}
+
+.NotFound__link:hover {
+    opacity: 0.6;
+}

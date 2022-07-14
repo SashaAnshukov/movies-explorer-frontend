@@ -1,0 +1,28 @@
+.NavBar__link_profile{
+    /*margin-left: 746px;*/
+    justify-content: flex-end;
+    align-content: end;
+    justify-items: end;
+    justify-self: end;
+    padding: 8px 20px 8px 20px;
+    align-self: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+    background: #F9F9F9;
+    border-radius: 20px;
+    color: #000000;
+}
+
+.NavBar__link_profile:hover {
+    background: #2BE080;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .NavBar__link_profile {
+        display: none;
+    }
+}

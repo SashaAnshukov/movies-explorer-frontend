@@ -1,0 +1,31 @@
+.Formlist__title {
+    display: flex;
+    max-width: 396px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+    color:#000000;
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding-bottom: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+@media screen and (max-width: 428px) {
+    .Formlist__title {
+        max-width: 280px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Formlist__title {
+        max-width: 260px;
+        margin: 50px auto 0 auto;
+        justify-content: center;
+        padding-bottom: 56px;
+    }
+}
+
