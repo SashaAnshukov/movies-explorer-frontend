@@ -1,0 +1,30 @@
+.footer__description {
+    max-width: 1140px;
+    display: flex;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #A0A0A0;
+    margin: 79px auto 0 auto;
+    padding-bottom: 20px;
+    justify-content: center;
+    border-bottom: 1px solid #E8E8E8;;
+}
+
+@media screen and (max-width: 768px) {
+    .footer__description {
+        font-size: 12px;
+        line-height: 15px;
+        padding-bottom: 21px;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .footer__description {
+        font-size: 12px;
+        line-height: 15px;
+        padding-bottom: 21px;
+        margin-bottom: 0;
+    }
+}

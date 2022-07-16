@@ -1,0 +1,24 @@
+.Movies__search-button {
+    border-radius: 50px;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    border:none;
+    align-self: center;
+    cursor: pointer;
+    background: url("../../../images/find.svg");
+    margin-right: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .Movies__search-button {
+        margin-right: 19px;
+    }
+}
+
+
+@media screen and (max-width: 321px) {
+    .Movies__search-button {
+        
+    }
+}

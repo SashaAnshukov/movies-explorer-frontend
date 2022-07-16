@@ -1,0 +1,21 @@
+.portfolio {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 106px;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio {
+        margin-bottom: 71px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .portfolio {
+        margin-bottom: 51px;
+    }
+}

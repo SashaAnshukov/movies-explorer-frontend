@@ -1,0 +1,13 @@
+.Movies__search-icon {
+    background: url("../../../images/searc-icon.svg");
+    width: 34px;
+    height: 34px;
+    margin-right: 10px;
+    order: -1;
+}
+
+@media screen and (max-width: 321px) {
+    .Movies__search-icon {
+        display: none;
+    }
+}

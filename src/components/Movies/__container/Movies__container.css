@@ -1,0 +1,15 @@
+.Movies__container {
+    display: flex;
+    max-width: 1140px;
+    width: 89.0625vw;
+    flex-direction: row;
+    margin: 70px auto 80px auto;
+    
+    border-radius: 9px;
+}
+
+@media screen and (max-width: 666px) {
+    .Movies__container {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,21 @@
+.MoviesCard__trash {
+    position: absolute;
+    border: none;
+    background: url("../../../images/trash.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 19.3px;
+    min-width: 18px;
+    margin-top: 18px;
+    margin-right: 15px;
+    margin-left: 249px;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.MoviesCard__trash_hidden {
+    display: none;
+}

@@ -1,0 +1,25 @@
+.portfolio__description {
+    color: #000000;
+    max-width: 600px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    mix-blend-mode: normal;
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__description {
+        max-width: 364px;
+    
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__description {
+        max-width: 292px;
+    }
+}

@@ -1,0 +1,23 @@
+.Profile__button_item {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    border: none;
+    background-color: white;
+    color: #000000;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    justify-items: center;
+}
+
+.Profile__button_item:hover {
+    color: red;
+    font-weight: 500;
+}

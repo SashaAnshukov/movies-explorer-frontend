@@ -1,0 +1,19 @@
+.NavTab__buttonText {
+    color: #000000;
+    font-style: normal;
+    display: flex;
+    min-width: 96px; 
+    align-items: center;
+    justify-content: center;
+    text-decoration:  none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px
+}
+
+@media screen and (max-width: 321px) {
+    .NavTab__buttonText {
+        min-width: 82px; 
+        font-size: 10px
+    }
+}

@@ -1,0 +1,21 @@
+.MoviesCard__image {
+    object-fit: cover;
+    width: 364px;
+    height: 203px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:767px) {
+    .MoviesCard__image {
+        object-fit: cover;
+        width: 339px;
+        height: 190px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .MoviesCard__image {
+        max-width: 300px;
+    }
+}

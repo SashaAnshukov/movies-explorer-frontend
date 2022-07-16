@@ -1,0 +1,18 @@
+.NavTab__elements {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    column-gap: 10px;
+    margin-top: 151px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px
+}
+
+@media screen and (max-width: 321px) {
+    .NavTab__elements {
+        grid-template-columns: repeat(3, 82px);
+        column-gap: 6px;
+        margin-top: 212px;
+        margin-bottom: 17px
+    }
+}

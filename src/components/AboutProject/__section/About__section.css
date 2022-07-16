@@ -1,0 +1,18 @@
+.About__section {
+    margin-right: 40px;
+}
+.About__section:last-of-type {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 321px) {
+    .About__section {
+        margin: 60px 0 56px 0;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .About__section:last-of-type {
+        margin: 0 0 0 0;
+    }
+}

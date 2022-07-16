@@ -1,0 +1,20 @@
+.App {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.App__container {
+    margin: 0 auto;
+    max-width: 1280px;
+    /*min-width: 320px;*/
+    /*border: 1px dashed red;*/
+}

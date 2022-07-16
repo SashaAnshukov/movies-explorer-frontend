@@ -1,0 +1,13 @@
+.Movies__separator-line {
+    height: 40px;
+    width:1px;
+    align-self: center;
+    background: #E8E8E8;
+    margin: 0;
+}
+
+@media screen and (max-width: 666px) {
+    .Movies__separator-line {
+        display: none;
+    }
+}

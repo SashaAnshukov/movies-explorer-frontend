@@ -1,0 +1,13 @@
+.footer__link-list-type {
+    color: #000000;
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: none;
+    margin: 0 auto 12px auto;
+}
+
+@media screen and (max-width:390x) {
+    .footer__link-list-type {
+        margin-bottom: 12px;
+    }
+}

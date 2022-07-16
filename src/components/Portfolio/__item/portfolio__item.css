@@ -1,0 +1,7 @@
+.portfolio__item {
+    display: flex;
+    justify-content: space-between;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-bottom: solid 1px #E8E8E8;
+}

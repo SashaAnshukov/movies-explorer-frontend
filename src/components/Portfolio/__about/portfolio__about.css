@@ -1,0 +1,31 @@
+.portfolio__about {
+    color: #000000;
+    max-width: 600px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    mix-blend-mode: normal;
+    margin-top: 0;
+    margin-bottom: 99px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__about {
+        max-width: 364px;
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 87px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__about {
+        max-width: 292px;
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom:40px;
+    }
+}

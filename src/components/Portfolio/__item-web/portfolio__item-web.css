@@ -1,0 +1,25 @@
+.portfolio__item-web {
+    max-width: 1140px;
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    margin-bottom: 19px;
+    margin-top: 21px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__item-web {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .portfolio__item-web {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}

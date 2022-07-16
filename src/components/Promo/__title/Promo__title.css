@@ -1,0 +1,29 @@
+.Promo__title {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+    max-width: 730px;
+    padding-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 768px) {
+    .Promo__title {
+        max-width: 680px;
+        font-size: 40px;
+        line-height: 52px;
+        letter-spacing: -0.04em;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Promo__title {
+        max-width: 292px;
+        font-size: 29px;
+        line-height: 37px;
+    }
+}

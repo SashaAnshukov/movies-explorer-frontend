@@ -1,0 +1,133 @@
+#menu__toggle {
+  opacity: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+  z-index: 100;
+  right: 24px;
+  top: 24px;
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu__overlay {
+  visibility: hidden;
+}
+
+#menu__toggle:checked ~ .menu__overlay {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: .3;
+  transition-duration: .25s;
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  right: 0;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .hamburger-menu {
+      display: none;
+      justify-content: flex-end;
+      justify-self:end;
+  }
+}
+
+.menu__btn {
+  display: flex;
+  
+  
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+
+  width: 28px;
+  height: 2px;
+
+  background-color: #000000;
+
+  transition-duration: .25s;
+}
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+
+  width: 520px;
+  height: 100%;
+
+  margin: 0;
+  padding: 163.91px 0;
+
+  list-style: none;
+
+  background-color: #fafafa;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+  transition-duration: .25s;
+  z-index: 50;
+}
+
+@media screen and (max-width: 520px) {
+  .menu__box {
+    width: 100%;
+  }
+}
+
+.menu__item {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 36px 0;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  transition-duration: .25s;
+}
+.menu__item:hover {
+  background-color: #CFD8DC;
+  text-decoration: underline;
+}
+
+.menu__item-account {
+  display: flex;
+  justify-content: center;
+  padding: 621.32px 0 0 0;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  transition-duration: .25s;
+}

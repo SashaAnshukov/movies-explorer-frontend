@@ -1,0 +1,53 @@
+.Movies__search {
+    display: flex;
+    justify-content: center;
+    background: #F9F9F9;
+    border-radius: 9px 0 0 9px;
+}
+
+/*@media screen and (max-width: 1100px) {
+    .Movies__search {
+        width: 85.9091vw;
+    }
+}*/
+
+@media screen and (max-width: 768px) {
+    .Movies__search {
+        width: 92.1875vw;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .Movies__search {
+        border-radius: 9px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .Movies__search {
+        width: 93.75vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*
+1280px - 100vw
+1140px - 89.0625vw
+
+1100px - 100vw
+945px - 85.9091vw
+
+1280 - 100%
+1100 - 85.9375%
+
+
+768px - 100vw
+708px - 92.1875vw
+
+320px - 100vw
+300px - 93.75vw
+
+*/
+
+

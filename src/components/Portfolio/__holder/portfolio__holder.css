@@ -1,0 +1,28 @@
+.portfolio__holder {
+    position: relative;
+    align-self:flex-start;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 8;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio__holder {
+        max-width: 364px;
+        align-self:flex-start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .portfolio__holder {
+        grid-column-start: 1;
+    
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .portfolio__holder {
+        max-width: 292px;
+    }
+}

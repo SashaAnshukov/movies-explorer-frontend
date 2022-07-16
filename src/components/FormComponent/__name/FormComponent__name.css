@@ -1,0 +1,27 @@
+.FormComponent__name {
+    display: flex;
+    flex-direction: column;
+    width: 396px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #A0A0A0;
+}
+
+@media screen and (max-width: 428px) {
+    .FormComponent__name {
+        max-width: 280px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .FormComponent__name {
+        max-width: 260px;
+    }
+}
