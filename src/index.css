@@ -44,6 +44,7 @@
 @import url('./components/Profile/__title/Profile__title.css');
 @import url('./components/Profile/__label/Profile__label.css');
 @import url('./components/Profile/__button/Profile__button.css');
+@import url('./components/Profile/__input-error/Profile__input-error.css');
 @import url('./components/Profile/__button/_item/Profile__button_item.css');
 
 @import url('./components/NotFound/NotFound.css');

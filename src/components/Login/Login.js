@@ -50,7 +50,7 @@ function Login ({authorization}) {
                 />
             </FormList>
             <p className="FormList__button_span">Ещё не зарегистрированы?
-                <Link className="FormList__button_link" to='/sign-up'> Регистрация</Link>
+                <Link className="FormList__button_link" to='/signup'> Регистрация</Link>
             </p>
         </div>
     )

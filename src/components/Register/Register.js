@@ -27,15 +27,15 @@ function Register ({registration}) {
 
 //Отправляем данные на сервер
     function handleSubmit(e) {
-    // Запрещаем браузеру переходить по адресу формы
-    e.preventDefault();
-    
-    // Передаём значения управляемых компонентов во внешний обработчик
-    const datastartPage = {};
-    datastartPage.name = name;
-    datastartPage.email = email;
-    datastartPage.password = password;
-    registration(datastartPage);
+        // Запрещаем браузеру переходить по адресу формы
+        e.preventDefault();
+        
+        // Передаём значения управляемых компонентов во внешний обработчик
+        const datastartPage = {};
+        datastartPage.name = name;
+        datastartPage.email = email;
+        datastartPage.password = password;
+        registration(datastartPage);
     }
 
     return (
@@ -55,7 +55,7 @@ function Register ({registration}) {
                 />
             </FormList>
             <p className="FormList__button_span">Уже зарегистрированы?
-                <Link className="FormList__button_link" to='/sign-in'> Войти</Link>
+                <Link className="FormList__button_link" to='/signin'> Войти</Link>
             </p>
         </div>
     )

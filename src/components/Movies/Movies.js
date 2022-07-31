@@ -1,132 +1,70 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
+import mainApi from "../../utils/MainApi";
 import {useState, useEffect} from 'react';
-import {useContext} from 'react';
 
-function Movies(
-{onCardClick, onCardLike, onCardDelete, onBookmarkClick, isSavedCard}) {
+//Есть хук useForm в библиотеке react-hook-form. С ним очень просто сделать валидацию.
 
-    const currentUser = useContext(CurrentUserContext);
+function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateShortMovies,
+    onCardLike, isLikedCard}) {
 
-
-    const apiURL = 'https://api.nomoreparties.co/beatfilm-movies'
-
-    let moviesCount = 5;
-    let moviesAddCount = 2;
-    
-    const onResize = () => {
-        if (window.innerWidth >= 1280) {
-            moviesCount = 12;
-            moviesAddCount =3;
-        } else if (window.innerWidth >= 768) {
-            moviesCount = 8;
-            moviesAddCount = 2;
+    const getloadStep = (width) => {
+        if (width >= 1280) {
+            return 3;
+        } else if (width= 768) {
+            return 2;
         } else {
-            moviesCount = 5;
-            moviesAddCount = 2;
+            return 2;
         }
     }
-    window.onresize = () => {
-        setTimeout(onResize, 1000)
-    };
 
-    onResize();
-
-    const [cards, setCards] = useState([]);
-    const [filteredCards, setFilteredCards] = useState([]);
-    const [shortCards, setShortCards] = useState(false);
-    const [query, setQuery] = useState('');
-    const [countFilms, setCountFilms] = useState(moviesCount);
-    const [addCountFilms, setAddCountFilms] = useState(moviesAddCount);
-    const [savedCards, setSavedCards] = useState([]);
-    const [isLoading, setisLoading] = useState(false);
-
-    const updateMovies = (cards) => {
-        setCards(cards);
-        localStorage.setItem('all_movies', JSON.stringify(cards));
-    }
-
-    const updateFilteredMovies = (cards) => {
-        setFilteredCards(cards);
-        localStorage.setItem('all_filtered_movies', JSON.stringify(cards));
-    }
-
-    const updateShortCards = (shortCards) => {
-        setisLoading(true)
-        setTimeout(() => {
-            setCountFilms (moviesCount);
-            setShortCards(shortCards);;
-            localStorage.setItem('all_shortCards', JSON.stringify(shortCards));
-            setisLoading(false)
-        }, 600)
-    }
-
-    const updateQuery = (query) => {
-        query = query.toLowerCase();
-        setQuery(query);
-        localStorage.setItem('all_query', query);
-    }
-
-    console.log (cards);
-
-    useEffect (() => {
-        const cards = JSON.parse(localStorage.getItem('all_movies') || '[]');
-        updateMovies(cards);
-        updateFilteredMovies(
-            JSON.parse(localStorage.getItem('all_filtered_movies') || '[]')
-        );
-        updateQuery(localStorage.getItem('all_query') || '');
-        updateShortCards(
-            JSON.parse(localStorage.getItem('all_short_movies') || 'false')
-        );
-
-        if (!cards.length) {
-            fetch (apiURL, {
-                method: 'GET',
-                headers: {
-                    //'Accept': 'application/json',
-                    'Content-Type': 'aplication/json'
-                },
-            })
-            .then((res) => res.json())
-            .then((res) => {
-            updateMovies(res);
-            updateFilteredMovies([]);
-            })
+    const getInitialCount = (width) => {
+        if (width >= 1280) {
+            return 12;
+        } else if (width= 768) {
+            return 8;
+        } else {
+            return 5;
         }
-    }, []);
+    }
+    const [width, setWidth] = useState(window.innerWidth);//стэйт ширины экрана
+    //сколько сейчас отображается фильмов
+    const [visibleFilmsCount, setVisibleFilmsFilmsCount] = useState(getInitialCount(width));
 
-    const handleSubmit = (e) => {
-        // Запрещаем браузеру переходить по адресу формы
-        e.preventDefault();
-        setisLoading(true)
-        setTimeout(() => {
-            if (query.length){
-                const filteredCards = cards.filter (
-                    card => card.nameRU.toLowerCase().indexOf(query) >= 0,
-                    
-                );
-                updateFilteredMovies(filteredCards)
-                setisLoading(false)
-            } else {
-                updateFilteredMovies(cards)
-                setisLoading(false)
-            }
-        }, 600)
+    const [isLoading, setisLoading] = useState(false); //стэйт прелоадера
+
+    //console.log('width:', width);
+
+    useEffect(() => {
+        let timeoutId = null;
+
+        const resizeListener = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => setWidth(window.innerWidth), 150);
+            //timeoutId = setTimeout
+        }
+
+        window.addEventListener('resize', resizeListener)
+
+        return() => {
+            window.removeEventListener('resize', resizeListener)
+        };
+        
+    }, [])
+
+
+    function handleSubmit(evt) {
+        evt.preventDefault();
+        onSubmitSearch(query);
     }
 
     const addMovies = () => {
         setisLoading(true)
         setTimeout(() => {
-            setCountFilms (countFilms + addCountFilms)
+            setVisibleFilmsFilmsCount((prevCount)=> prevCount + getloadStep(width));
             setisLoading(false)
         }, 600)
     }
-
-    const searchResult = filteredCards.filter(
-        (card) => !shortCards || card.duration <= 40
-    )
 
     return (
         <main>
@@ -150,24 +88,26 @@ function Movies(
                     <h2 className="Movies__separator-line"></h2>
                     <input
                         className="Movies__checkbox"
-                        type="checkbox" checked={shortCards} 
-                        onChange={ ()=> updateShortCards (!shortCards)}
+                        type="checkbox" checked={shortCards}
+                        onChange={()=> updateShortMovies (!shortCards)}
                     />
                     <h2 className="Movies__checkbox_name"> Короткометражки </h2>
                 </div>
             </div>
+        
             
                 <section className="Movies__elements">
-                    {searchResult.slice (0, countFilms)
-                    .map ((card) => {
+                    {/*searchResult.slice(0, countFilms)*/
+                    cards.slice(0, visibleFilmsCount).map ((card) => {
                         return <MoviesCard 
-                            onCardClick = {onCardClick} onCardLike = {onCardLike}
-                            isSavedCard= {isSavedCard} onBookmarkClick={onBookmarkClick}
-                            onCardDelete ={onCardDelete} card={card} key = {card.id}/>
+                            onCardLike = {onCardLike}
+                            isLikedCard= {isLikedCard}
+                            card={card} key = {card.id}
+                        />
                     })}
                 </section>
-                {isLoading && <Preloader/> }
-                {countFilms < searchResult.length && (
+                {isLoading && <Preloader/>}
+                {visibleFilmsCount < cards.length && (
                     <button className="Movies__add-button opacity-buttons" 
                         type="button"onClick={addMovies}>
                             Ещё

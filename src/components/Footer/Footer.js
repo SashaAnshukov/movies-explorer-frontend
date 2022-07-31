@@ -6,9 +6,9 @@ function Footer() {
     return (
         <>
         { 
-            pathname !== "/sign-up" 
+            pathname !== "/signup" 
             &&
-            pathname !== "/sign-in"
+            pathname !== "/signin"
             &&
             pathname !== "/404"
             &&

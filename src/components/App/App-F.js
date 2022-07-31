@@ -20,13 +20,12 @@ function App() {
 
   const [currentUser , setCurrentUser] = useState('');
 
-  const [cards, setCards] = useState([]); // стэйт всех фильмов
-  const [loggedIn, setLoggedIn] = useState(false); // стэйт пользователя — вошёл он в систему или нет
-  const [favoriteCards, setFavoriteCards] = useState([]); // стэйт избранных фильмов из нашего апи
-  const [query, setQuery] = useState(''); // стэйт поисковой строки
-  const [filteredCards, setFilteredCards] = useState([]); // стэйт результатов поиска по фильмам
-  const [shortCards, setShortCards] = useState(false); // стэйт короткометражек (чекбокса)
-  //const [countFilms, setCountFilms] = useState(moviesCount);
+  // стэйт пользователя — вошёл он в систему или нет
+  const [loggedIn, setLoggedIn] = useState(false);
+  // стэйт избранных фильмов
+  const [favoriteCards, setFavoriteCards] = useState([]);
+
+  
 
 useEffect(() => {
   if (loggedIn) {
@@ -42,8 +41,8 @@ useEffect(() => {
     })
     .catch(err => {
         console.log (`Ошибка: ${err}`)
-    })
-  }
+      })
+    }
 }, [loggedIn])
 
 function registration({name, email, password}) {
@@ -83,86 +82,10 @@ function authorization({email, password}) {
     })
 }
 
-const updateMovies = (cards) => {
-  setCards(cards);
-  localStorage.setItem('all_movies', JSON.stringify(cards));
-}
-
-const updateFavoriteMovies = (favoriteCards) => {
-  setCards(favoriteCards);
-  localStorage.setItem('all_favorite_movies', JSON.stringify(favoriteCards));
-}
-
-// Отправляем запрос в bestFilms и получаем все фильмы
-const fetchAllMovies = () => {
-  if(!cards.length) {
-    fetch ('https://api.nomoreparties.co/beatfilm-movies', {
-      method: 'GET',
-      headers: {
-        //'Accept': 'application/json',
-        'Content-Type': 'aplication/json'
-      },
-    })
-    .then((res) => res.json())
-    .then(res => {
-      console.log(res)
-      updateMovies(res)
-    })
-  }
-}
-
-// Отправляем запрос в API и получаем избранные фильмы
-const fetchFavoriteMovies = () => {
-  //if (loggedIn) {
-      mainApi.getSavedMovies()
-        .then(res => {
-          console.log(res.data)
-          const savedArray = res.data.map((item) => {
-            return { ...item, id: item.movieId };
-          });
-          updateFavoriteMovies(res.data)
-        })
-        .catch(() => {
-          localStorage.removeItem("all_favorite_movies");
-          //setLoading --- ошибка
-        });
-  //}
-}
-
-useEffect(() => {
-  const localCards = localStorage.getItem('all_movies');
-  const localFavoriteCards = localStorage.getItem('all_favorite_movies');
-  
-  if(localCards){
-    try {
-      setCards(JSON.parse(localCards));
-    }
-    catch (err){
-      localStorage.removeItem('all_movies');
-      fetchAllMovies();
-    }
-  } else{
-    fetchAllMovies();
-  }
-
-  if(localFavoriteCards){
-    try {
-      setFavoriteCards(JSON.parse(localFavoriteCards));
-    }
-    catch (err){
-      localStorage.removeItem('all_favorite_movies');
-      fetchFavoriteMovies();
-    }
-  } else{
-    fetchFavoriteMovies();
-  }
-
-}, [])
-
 /////////////////////////////////////Добавление в избранное//////////////////////////////////////////////
 
 function isLikedCard(card) {
-  return favoriteCards.some((i) => i.id === card.id);
+  return favoriteCards.some((item) => item.id === card.id);
 }
 
 function onCardLike(card, isLiked) {
@@ -174,8 +97,6 @@ function onCardLike(card, isLiked) {
 }
 
 const addFavoriteMovie = (newCard) => {
-  //const movieId = favoriteCards.find((item) => item.id === movie.id)._id;
-  //console.log(movieId);
   mainApi.createMovie(newCard)
   .then((res) => {
       console.log(res);
@@ -205,31 +126,61 @@ const deleteFavoriteMovie = (card) => {
       console.log (`Ошибка: ${err}`)
   })
 };
-/*
+
 useEffect(() => {
-  const cards = JSON.parse(localStorage.getItem('all_movies') || '[]');
-  updateMovies(cards);
   const favoriteCards = JSON.parse(localStorage.getItem('all_favorite_movies') || '[]');
   if (favoriteCards) {
     setFavoriteCards(favoriteCards);
   }
   getFavoriteMovies(favoriteCards);
-}, []);*/
+}, []);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    /*let moviesCount = 5;
+    let moviesAddCount = 2;
+    
+    const onResize = () => {
+        if (window.innerWidth >= 1280) {
+            moviesCount = 12;
+            moviesAddCount =3;
+        } else if (window.innerWidth >= 768) {
+            moviesCount = 8;
+            moviesAddCount = 2;
+        } else {
+            moviesCount = 5;
+            moviesAddCount = 2;
+        }
+    }
+    window.onresize = () => {
+        setTimeout(onResize, 1000)
+    };
+    onResize();*/
+
+// стэйт всех фильмов
+const [cards, setCards] = useState([]);
+// стэйт результатов поиска по фильмам
+const [filteredCards, setFilteredCards] = useState([]);
+// стэйт поисковой строки
+const [query, setQuery] = useState('');
+// стэйт короткометражек (чекбокса)
+const [shortCards, setShortCards] = useState(false)
+
+//const [countFilms, setCountFilms] = useState(moviesCount);
+//const [addCountFilms, setAddCountFilms] = useState(moviesAddCount);
+// стэйт прелоадинга
+const [isLoading, setisLoading] = useState(false);
+
+const updateMovies = (cards) => {
+  setCards(cards);
+  localStorage.setItem('all_movies', JSON.stringify(cards));
+}
+
 const updateFilteredMovies = (cards) => {
   setFilteredCards(cards);
   localStorage.setItem('all_filtered_movies', JSON.stringify(cards));
-}
-
-const updateShortMovies = (shortCards) => {
-  //setisLoading(true)
-  //setTimeout(() => {
-      //setCountFilms (moviesCount);
-      setShortCards(shortCards);
-      localStorage.setItem('all_short_movies', JSON.stringify(shortCards));
-      //setisLoading(false)
-  //}, 600)
 }
 
 const updateQuery = (query) => {
@@ -238,42 +189,95 @@ const updateQuery = (query) => {
   localStorage.setItem('all_query', query);
 }
 
-const onSubmitSearch = () => {
+const updateShortMovies = (shortCards) => {
+  setisLoading(true)
+  setTimeout(() => {
+      //setCountFilms (moviesCount);
+      setShortCards(shortCards);
+      localStorage.setItem('all_short_movies', JSON.stringify(shortCards));
+      setisLoading(false)
+  }, 600)
+}
+
+useEffect (() => {
+  const cards = JSON.parse(localStorage.getItem('all_movies') || '[]');
+  updateMovies(cards);
+  updateFilteredMovies(
+      JSON.parse(localStorage.getItem('all_filtered_movies') || '[]')
+  );
+  updateQuery(localStorage.getItem('all_query') || '');
+  updateShortMovies(
+      JSON.parse(localStorage.getItem('all_short_movies') || 'false')
+  );
+  
+  const apiURL = 'https://api.nomoreparties.co/beatfilm-movies'
+
+  if (!cards.length) {
+      fetch (apiURL, {
+          method: 'GET',
+          headers: {
+              //'Accept': 'application/json',
+              'Content-Type': 'aplication/json'
+          },
+      })
+      .then((res) => res.json())
+      .then((res) => {
+      updateMovies(res);
+      updateFilteredMovies([]);
+      updateShortMovies([])
+      //getFavoriteMovies([])
+      })
+  }
+}, []);
+
+const handleSubmit = (e) => {
   // Запрещаем браузеру переходить по адресу формы
-  //setisLoading(true)
-  //setTimeout(() => {
+  e.preventDefault();
+  setisLoading(true)
+  setTimeout(() => {
       if (query.length){
+        
           const filteredCards = cards.filter (
               (card) => card.nameRU.toLowerCase().indexOf(query) >= 0,
+              
       );
-          console.log(filteredCards);
+          console.log(query.length)
           updateFilteredMovies(filteredCards)
-          //setisLoading(false)
+          setisLoading(false)
       } else {
           updateFilteredMovies(cards)
-          //setisLoading(false)
+          setisLoading(false)
       }
-  //}, 600)
+  }, 600)
 }
-useEffect(() => {
 
-  updateFilteredMovies(
-    JSON.parse(localStorage.getItem('all_filtered_movies') || '[]')
-  );
-
-  updateQuery(localStorage.getItem('all_query') || '');
-
-  updateShortMovies(
-    JSON.parse(localStorage.getItem('all_short_movies') || 'false')
-  );
-
-}, [])
-
-
-//фильтрация результата поиска
-const searchResult = filteredCards.filter((card) => !shortCards || card.duration <= 40)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Отправляем запрос в API и получаем избранные фильмы
+function getFavoriteMovies() {
+  mainApi.getSavedMovies()
+    .then((data) => {
+      console.log(data)
+      const savedArray = data.map((item) => {
+        return { ...item, id: item.movieId };
+      });
+      localStorage.setItem("all_favorite_movies", JSON.stringify(savedArray));
+      setFavoriteCards(savedArray);
+      //console.log(favoriteCards)
+    })
+    .catch(() => {
+      /*localStorage.removeItem("savedMovies");
+      setLoadingError(
+        "Проблема с соединением или сервер недоступен. Пожалуйста, попробуйте ещё раз"
+      );*/
+    });
+}
+getFavoriteMovies();
+console.log(favoriteCards)
+/*const updateFavoriteMovies = (favoriteCards) => {
+  setFavoriteCards(favoriteCards);
+  localStorage.setItem('all_favorite_movies', JSON.stringify(favoriteCards));
+}*/
 
 // Отправляем запрос в API и обновляем значения профиля
 function handleUpdateUser (dataUser) {
@@ -335,30 +339,23 @@ function signOut() {
 
           <Route exact path='/movies' element = {
             <ProtectedRoute loggedIn={loggedIn} >
-              <Movies 
-                cards={searchResult}
-                query={query}
-                shortCards={shortCards}
-                updateQuery={updateQuery}
-                updateShortMovies={updateShortMovies}
-                isLikedCard={isLikedCard}
+              <Movies
+                cards={cards}
+                handleSubmit={handleSubmit}
                 onCardLike={onCardLike}
-                onSubmitSearch={onSubmitSearch}
+                isLikedCard={isLikedCard}
+                value={query} updateQuery={updateQuery} checked={shortCards}
+                updateShortMovies={updateShortMovies} isLoading={isLoading}
               />
             </ProtectedRoute> 
           }/>
 
           <Route exact path='/saved-movies' element = {
             <ProtectedRoute loggedIn={loggedIn} >
-              <Movies 
-                cards={favoriteCards}
-                query={query}
-                shortCards={shortCards}
-                updateQuery={updateQuery}
-                updateShortMovies={updateShortMovies}
-                isLikedCard={isLikedCard}
+              <Movies
                 onCardLike={onCardLike}
-                onSubmitSearch={onSubmitSearch}
+                isLikedCard={isLikedCard}
+                cards={favoriteCards}
               />
             </ProtectedRoute> 
           }/> 
