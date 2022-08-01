@@ -1,7 +1,8 @@
 import React from 'react';
 
+
 function FormComponent ({name, value, onChange, minLength, maxLength, type, nameInput}) {
-    
+
     return (
         <div className="FormComponent__label">
             <h2 className='FormComponent__name'>{name}</h2>

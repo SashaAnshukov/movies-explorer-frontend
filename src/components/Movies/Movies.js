@@ -102,7 +102,7 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
                         return <MoviesCard 
                             onCardLike = {onCardLike}
                             isLikedCard= {isLikedCard}
-                            card={card} key = {card.id}
+                            card={card} key = {card._id}
                         />
                     })}
                 </section>

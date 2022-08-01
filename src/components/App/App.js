@@ -88,14 +88,14 @@ const updateMovies = (cards) => {
   localStorage.setItem('all_movies', JSON.stringify(cards));
 }
 
-const updateFavoriteMovies = (favoriteCards) => {
-  setCards(favoriteCards);
-  localStorage.setItem('all_favorite_movies', JSON.stringify(favoriteCards));
+const updateFavoriteMovies = (movies) => {
+  setCards(movies);
+  localStorage.setItem('all_favorite_movies', JSON.stringify(movies));
 }
 
 // Отправляем запрос в bestFilms и получаем все фильмы
 const fetchAllMovies = () => {
-  if(!cards.length) {
+  
     fetch ('https://api.nomoreparties.co/beatfilm-movies', {
       method: 'GET',
       headers: {
@@ -108,19 +108,20 @@ const fetchAllMovies = () => {
       console.log(res)
       updateMovies(res)
     })
-  }
+  
 }
 
 // Отправляем запрос в API и получаем избранные фильмы
+
 const fetchFavoriteMovies = () => {
   //if (loggedIn) {
       mainApi.getSavedMovies()
-        .then(res => {
-          console.log(res.data)
-          const savedArray = res.data.map((item) => {
+        .then(movies => {
+          console.log(movies)
+          /*const savedArray = res.data.map((item) => {
             return { ...item, id: item.movieId };
-          });
-          updateFavoriteMovies(res.data)
+          });*/
+          updateFavoriteMovies(movies)
         })
         .catch(() => {
           localStorage.removeItem("all_favorite_movies");
@@ -128,6 +129,13 @@ const fetchFavoriteMovies = () => {
         });
   //}
 }
+
+useEffect(() => {
+  if (loggedIn) {
+    fetchAllMovies();
+    fetchFavoriteMovies();
+  }
+}, [loggedIn]);
 
 useEffect(() => {
   const localCards = localStorage.getItem('all_movies');

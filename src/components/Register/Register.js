@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import FormList from '../FormList/FormList';
 import FormComponent from '../FormComponent/FormComponent';
+import {useFormWithValidation} from "../../hooks/useForm"
 
 function Register ({registration}) {
     
@@ -38,8 +39,15 @@ function Register ({registration}) {
         registration(datastartPage);
     }
 
+    /*{Object.keys(errors).map((errorKey, index) => (
+        <p className="Profile__input-error" key={index}>{errors[errorKey]}</p>
+    ))}*/
+
+    //const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+
     return (
         <div>
+            
             <FormList
                 title = {'Добро пожаловать!'} name={'Регистрация'} 
                 onSubmit={handleSubmit} buttonText = {'Зарегистрироваться'}
@@ -47,12 +55,16 @@ function Register ({registration}) {
                 <FormComponent name = {'Имя'} value = {name} onChange = {handleChangeName}
                     minLength = {'1'} maxLength = {'30'} required type = {'text'} nameInput ={'name'}
                 />
+                    
+                
                 <FormComponent name = {'E-mail'} value = {email} onChange = {handleChangeEmail}
                     minLength = {'1'} maxLength = {'30'} required type = {'text'} nameInput ={'Email'}
                 />
+                
                 <FormComponent name = {'Пароль'} value = {password} onChange = {handleChangePassword}
                     minLength = {'4'}  required type = {'password'} nameInput ={'password'}
                 />
+                    
             </FormList>
             <p className="FormList__button_span">Уже зарегистрированы?
                 <Link className="FormList__button_link" to='/signin'> Войти</Link>
