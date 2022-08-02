@@ -10,6 +10,7 @@
 @import url('./components/FormList/__form/FormList__form');
 @import url('./components/FormList/__logo/FormList_logo.css');
 @import url('./components/FormList/__title/Formlist__title.css');
+@import url('./components/FormList/__input-error/Formlist__input-error.css');
 @import url('./components/FormList/__button/FormList__button.css');
 @import url('./components/FormList/__button//_span/FormList__button_span.css');
 @import url('./components/FormList/__button/_link/FormList__button_link.css');

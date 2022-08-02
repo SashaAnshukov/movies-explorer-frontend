@@ -1,0 +1,12 @@
+.Formlist__input-error {
+    display: flex;
+    max-width: 396px;
+    margin: 0 auto 0 auto;
+    box-sizing: border-box;
+    top: calc(100% + 3px);
+    /*justify-content: center;*/
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+}

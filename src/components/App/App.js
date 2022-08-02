@@ -46,7 +46,7 @@ useEffect(() => {
   }
 }, [loggedIn])
 
-function registration({name, email, password}) {
+function registration(name, email, password) {
   Auth.register(name, email, password)
   .then((response) => {
     /*setTimeout(setShowToolTip, 1000, true);
@@ -65,7 +65,7 @@ function registration({name, email, password}) {
   });
 }
 
-function authorization({email, password}) {
+function authorization(email, password) {
   Auth.authorize(email, password)
   .then((data) => {
     if (!data){
@@ -89,7 +89,7 @@ const updateMovies = (cards) => {
 }
 
 const updateFavoriteMovies = (movies) => {
-  setCards(movies);
+  setFavoriteCards(movies);
   localStorage.setItem('all_favorite_movies', JSON.stringify(movies));
 }
 

@@ -6,44 +6,17 @@ import FormComponent from '../FormComponent/FormComponent';
 import {useFormWithValidation} from "../../hooks/useForm"
 
 function Register ({registration}) {
-    
-    // Стейт, в котором содержится значение инпута - name, mail, password
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    // Обработчики изменения инпута обновляют стейт
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    function handleChangeName(e) {
-        setName(e.target.value);
-    }
-
-    function handleChangeEmail(e) {
-        setEmail(e.target.value);
-    }
-
-    function handleChangePassword(e) {
-        setPassword(e.target.value);
-    }
-
-//Отправляем данные на сервер
+    //Отправляем данные на сервер
     function handleSubmit(e) {
         // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
-        
         // Передаём значения управляемых компонентов во внешний обработчик
-        const datastartPage = {};
-        datastartPage.name = name;
-        datastartPage.email = email;
-        datastartPage.password = password;
-        registration(datastartPage);
+        registration( values.name, values.email, values.password );
+        resetForm();
     }
-
-    /*{Object.keys(errors).map((errorKey, index) => (
-        <p className="Profile__input-error" key={index}>{errors[errorKey]}</p>
-    ))}*/
-
-    //const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
     return (
         <div>
@@ -52,19 +25,21 @@ function Register ({registration}) {
                 title = {'Добро пожаловать!'} name={'Регистрация'} 
                 onSubmit={handleSubmit} buttonText = {'Зарегистрироваться'}
             >
-                <FormComponent name = {'Имя'} value = {name} onChange = {handleChangeName}
+                <FormComponent name = {'Имя'} value = {values.name || ''} onChange = {handleChange}
                     minLength = {'1'} maxLength = {'30'} required type = {'text'} nameInput ={'name'}
                 />
-                    
+                <p className="Formlist__input-error">{errors.name}</p>    
                 
-                <FormComponent name = {'E-mail'} value = {email} onChange = {handleChangeEmail}
-                    minLength = {'1'} maxLength = {'30'} required type = {'text'} nameInput ={'Email'}
+                <FormComponent name = {'E-mail'} value = {values.email || ''} onChange = {handleChange}
+                    minLength = {'1'} maxLength = {'30'} required type = {'email'} nameInput ={'email'}
                 />
+                <p className="Formlist__input-error">{errors.email}</p>
                 
-                <FormComponent name = {'Пароль'} value = {password} onChange = {handleChangePassword}
+                <FormComponent name = {'Пароль'} value = {values.password || ''} onChange = {handleChange}
                     minLength = {'4'}  required type = {'password'} nameInput ={'password'}
                 />
-                    
+                <p className="Formlist__input-error">{errors.password}</p>    
+
             </FormList>
             <p className="FormList__button_span">Уже зарегистрированы?
                 <Link className="FormList__button_link" to='/signin'> Войти</Link>
