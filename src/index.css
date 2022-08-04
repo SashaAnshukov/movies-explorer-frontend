@@ -121,6 +121,13 @@
 @import url('./components/Portfolio/__item/portfolio__item.css');
 @import url('./components/Portfolio/__item-web/portfolio__item-web.css');
 
+@import url('./components/Popup/popup.css');
+@import url('./components/Popup/_visible/popup_visible.css');
+@import url('./components/Popup/__overlay/popup__overlay.css');
+@import url('./components/Popup/__container/popup__container.css');
+@import url('./components/Popup/__close-button/popup__close-button.css');
+@import url('./components/Popup/infoToolTip/_image/popup__infoToolTip_image.css');
+@import url('./components/Popup/infoToolTip/_text/popup__infoToolTip_text.css');
 
 @import url('./components/Footer/footer.css');
 @import url('./components/Footer/__description/footer__description.css');

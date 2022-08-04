@@ -100,7 +100,7 @@ function Profile ({onUpdateUser, signOut}) {
                                         message: "Не верный формат почты"
                                     }
                                 })}
-                                value={email || ''}
+                                value={email || (currentUser.email) || ''}
                                 onChange={handleChangeEmail}
                                 type="text"
                                 className="Profile__input Profile__input_text_namePlace"

@@ -13,6 +13,9 @@ import Movies from '../Movies/Movies';
 import NavBar from '../Navbar/NavBar';
 import mainApi from "../../utils/MainApi";
 import * as Auth from '../Auth/Auth';
+import Popup from '../Popup/Popup';
+import success from "../../images/success.svg";
+import error from "../../images/error.svg";
 import {useState, useEffect} from 'react';
 
 function App() {
@@ -27,18 +30,21 @@ function App() {
   const [filteredCards, setFilteredCards] = useState([]); // стэйт результатов поиска по фильмам
   const [shortCards, setShortCards] = useState(false); // стэйт короткометражек (чекбокса)
   //const [countFilms, setCountFilms] = useState(moviesCount);
+  const [showToolTip, setShowToolTip] = useState(false);// стэйт для модального окна при успешной/не успешной регистрации
+  const [info, setInfo] = useState({ image: "", text: "" });// стэйт для данных модального окна при успешной/не успешной регистрации
+
+function ChooseInfoTooltip (info) {
+  setInfo({ image: info.image, text: info.text });
+}
+
+const closeAllPopups = (form) => {
+  setShowToolTip(false)
+};
 
 useEffect(() => {
   if (loggedIn) {
     mainApi.getUserData().then(res => {
-      //console.log(res.data);
-      /*if(!res.ok){
-        throw Error ('Не удалось получить данные для этого ресурса')
-        }*/
       setCurrentUser(res.data);
-
-        /*setName(res.data.name);
-        setEmail(res.data.email);*/
     })
     .catch(err => {
         console.log (`Ошибка: ${err}`)
@@ -49,19 +55,19 @@ useEffect(() => {
 function registration(name, email, password) {
   Auth.register(name, email, password)
   .then((response) => {
-    /*setTimeout(setShowToolTip, 1000, true);
+    setTimeout(setShowToolTip, 1000, true);
     ChooseInfoTooltip({
       image: success,
       text:'Вы успешно зарегистрировались'
-    })*/
+    })
     setTimeout(navigate, 3000, '/signin');
   })
   .catch((err) => {
-    /*setTimeout(setShowToolTip, 1000, true);
+    setTimeout(setShowToolTip, 1000, true);
     ChooseInfoTooltip({
       image: error,
       text: "Что-то пошло не так! Попробуйте еще раз!",
-    });*/
+    });
   });
 }
 
@@ -70,11 +76,11 @@ function authorization(email, password) {
   .then((data) => {
     if (!data){
       setLoggedIn(false);
-      /*setTimeout(setShowToolTip, 1000, true);
+      setTimeout(setShowToolTip, 1000, true);
       ChooseInfoTooltip({
         image: error,
         text: "Что-то пошло не так! Попробуйте еще раз!",
-        });*/
+        });
     }
     else {
       setLoggedIn(true);
@@ -153,7 +159,7 @@ useEffect(() => {
     fetchAllMovies();
   }
 
-  if(localFavoriteCards){
+  if(localFavoriteCards && localFavoriteCards.length){
     try {
       setFavoriteCards(JSON.parse(localFavoriteCards));
     }
@@ -182,12 +188,10 @@ function onCardLike(card, isLiked) {
 }
 
 const addFavoriteMovie = (newCard) => {
-  //const movieId = favoriteCards.find((item) => item.id === movie.id)._id;
-  //console.log(movieId);
   mainApi.createMovie(newCard)
   .then((res) => {
-      console.log(res);
       const newFavouriteList = [newCard, ...favoriteCards];
+      console.log(newFavouriteList);
       setFavoriteCards(newFavouriteList);
       //updateFavoriteMovies(newFavouriteList);
   })
@@ -287,9 +291,20 @@ const searchResult = filteredCards.filter((card) => !shortCards || card.duration
 function handleUpdateUser (dataUser) {
   console.log(dataUser)
   mainApi.setUserData(dataUser).then((res) => {
+    setTimeout(setShowToolTip, 1000, true);
+    ChooseInfoTooltip({
+      image: success,
+      text:'Вы успешно обновили данные пользователя'
+    })
+    setTimeout(3000);
     setCurrentUser(res.data);
   })
   .catch(err => {
+    setTimeout(setShowToolTip, 1000, true);
+    ChooseInfoTooltip({
+      image: error,
+      text: "Что-то пошло не так! Попробуйте еще раз!",
+    });
     console.log (`Ошибка: ${err}`)
   })
   //.finally(() => setisLoadingButton(false)); 
@@ -299,17 +314,19 @@ function handleUpdateUser (dataUser) {
   // хук для автологина при обновлении страницы
   // если получаем данные пользователя значит, авторизационные куки передаются успешно
 useEffect(() => {
-  mainApi.getUserData()
-  .then((res) => {
-  //console.log(res)
-    if (res) {
-      setLoggedIn(true);
-        navigate({ replace: false });
-    }
-  })
-  .catch(() => {
-    setLoggedIn(false);
-  });
+  if (loggedIn) {
+    mainApi.getUserData()
+    .then((res) => {
+    //console.log(res)
+      if (res) {
+        setLoggedIn(true);
+          navigate({ replace: false });
+      }
+    })
+    .catch(() => {
+      setLoggedIn(false);
+    });
+  }
 }, []);
 
 function signOut() {
@@ -382,6 +399,12 @@ function signOut() {
           />
 
         </Routes>
+
+        <Popup 
+          isOpen={showToolTip} 
+          onClose={closeAllPopups} 
+          info={info}
+        />
         
         <Footer />
       </CurrentUserContext.Provider>

@@ -3,8 +3,6 @@ import Preloader from '../Preloader/Preloader';
 import mainApi from "../../utils/MainApi";
 import {useState, useEffect} from 'react';
 
-//Есть хук useForm в библиотеке react-hook-form. С ним очень просто сделать валидацию.
-
 function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateShortMovies,
     onCardLike, isLikedCard}) {
 
@@ -102,7 +100,7 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
                         return <MoviesCard 
                             onCardLike = {onCardLike}
                             isLikedCard= {isLikedCard}
-                            card={card} key = {card._id}
+                            card={card} key = {card.id}
                         />
                     })}
                 </section>
