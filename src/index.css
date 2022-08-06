@@ -61,13 +61,11 @@
 @import url('./components/Movies/__search-icon/Movies__search-icon.css');
 @import url('./components/Movies/__search-input/Movies__search-input.css');
 @import url('./components/Movies/__search-field/Movies__search-field.css');
-
-
-
 @import url('./components/Movies/__separator-line/Movies__separator-line.css');
 @import url('./components/Movies/__checkbox/Movies__checkbox.css');
 @import url('./components/Movies/__checkbox/_name/Movies__checkbox_name.css');
 @import url('./components/Movies/__add-button/Movies__add-button.css');
+@import url('./components/Movies/__input-error/Movies__input-error.css');
 
 @import url('./components/MoviesCard/MoviesCard.css');
 @import url('./components/MoviesCard/__mesto-like/MoviesCard__mesto-like.css');

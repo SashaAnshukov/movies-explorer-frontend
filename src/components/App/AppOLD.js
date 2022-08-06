@@ -22,9 +22,9 @@ function App() {
   const navigate = useNavigate();
 
   const [currentUser , setCurrentUser] = useState('');
-  
-  const [loggedIn, setLoggedIn] = useState(false); // стэйт пользователя — вошёл он в систему или нет
+
   const [cards, setCards] = useState([]); // стэйт всех фильмов
+  const [loggedIn, setLoggedIn] = useState(false); // стэйт пользователя — вошёл он в систему или нет
   const [favoriteCards, setFavoriteCards] = useState([]); // стэйт избранных фильмов из нашего апи
   const [query, setQuery] = useState(''); // стэйт поисковой строки
   const [filteredCards, setFilteredCards] = useState([]); // стэйт результатов поиска по фильмам
@@ -95,10 +95,8 @@ const updateMovies = (cards) => {
 }
 
 const updateFavoriteMovies = (movies) => {
-  const likedMovies = movies.map(card => ({...card, isLiked: true}))
-  
-  setFavoriteCards(likedMovies);
-  localStorage.setItem('all_favorite_movies', likedMovies);
+  setFavoriteCards(movies);
+  localStorage.setItem('all_favorite_movies', JSON.stringify(movies));
 }
 
 // Отправляем запрос в bestFilms и получаем все фильмы
@@ -122,14 +120,20 @@ const fetchAllMovies = () => {
 // Отправляем запрос в API и получаем избранные фильмы
 
 const fetchFavoriteMovies = () => {
-  mainApi.getSavedMovies()
-    .then(movies => {
-      console.log(movies)
-      updateFavoriteMovies(movies)
-    })
-    .catch(() => {
-      localStorage.removeItem("all_favorite_movies");
-    });
+  //if (loggedIn) {
+      mainApi.getSavedMovies()
+        .then(movies => {
+          console.log(movies)
+          /*const savedArray = res.data.map((item) => {
+            return { ...item, id: item.movieId };
+          });*/
+          updateFavoriteMovies(movies)
+        })
+        .catch(() => {
+          localStorage.removeItem("all_favorite_movies");
+          //setLoading --- ошибка
+        });
+  //}
 }
 
 useEffect(() => {
@@ -140,14 +144,10 @@ useEffect(() => {
 }, [loggedIn]);
 
 useEffect(() => {
-  updateFilteredMovies(filteredCards)
-}, [favoriteCards])
-
-useEffect(() => {
   const localCards = localStorage.getItem('all_movies');
   const localFavoriteCards = localStorage.getItem('all_favorite_movies');
   
-  if(localCards && localCards.length){
+  if(localCards){
     try {
       setCards(JSON.parse(localCards));
     }
@@ -164,15 +164,11 @@ useEffect(() => {
       setFavoriteCards(JSON.parse(localFavoriteCards));
     }
     catch (err){
-      if(loggedIn){
-        localStorage.removeItem('all_favorite_movies');
-        fetchFavoriteMovies();
-      }
-    }
-  } else{
-    if(loggedIn){
+      localStorage.removeItem('all_favorite_movies');
       fetchFavoriteMovies();
     }
+  } else{
+    fetchFavoriteMovies();
   }
 
 }, [])
@@ -180,7 +176,7 @@ useEffect(() => {
 /////////////////////////////////////Добавление в избранное//////////////////////////////////////////////
 
 function isLikedCard(card) {
-  return favoriteCards.some((i) => i.movieId === card.id);
+  return favoriteCards.some((i) => i.id === card.id);
 }
 
 function onCardLike(card, isLiked) {
@@ -193,40 +189,48 @@ function onCardLike(card, isLiked) {
 
 const addFavoriteMovie = (newCard) => {
   mainApi.createMovie(newCard)
-    .then((res) => {
-        const newFavouriteList = [res.data, ...favoriteCards];
-        console.log('newFavouriteList', newFavouriteList)
-        updateFavoriteMovies(newFavouriteList);
-    })
-    .catch(err => {
-      console.log (`Ошибка: ${err}`)
-    })
+  .then((res) => {
+      const newFavouriteList = [newCard, ...favoriteCards];
+      console.log(newFavouriteList);
+      setFavoriteCards(newFavouriteList);
+      //updateFavoriteMovies(newFavouriteList);
+  })
+  .catch(err => {
+    console.log (`Ошибка: ${err}`)
+  })
 };
 
+/*let idCard = favoriteCards.find(item => item.id);
+console.log(idCard.id)*/
 
 const deleteFavoriteMovie = (card) => {
-    mainApi.deleteMovie(card._id)
-      .then(() => {
-          const newFavouriteList = favoriteCards.filter(
-              (favoriteCards) => favoriteCards._id !== card._id
-          );
-          updateFavoriteMovies(newFavouriteList)
-      })
-      .catch(err => {
-          console.log (`Ошибка: ${err}`)
-      })
+  console.log(card._id)
+  mainApi.deleteMovie(card._id)   
+  .then(() => {
+      const newFavouriteList = favoriteCards.filter(
+          (favoriteCards) => favoriteCards._id !== card._id
+      );
+      setFavoriteCards(newFavouriteList);
+      //updateFavoriteMovies(newFavouriteList);
+  })
+  .catch(err => {
+      console.log (`Ошибка: ${err}`)
+  })
 };
+/*
+useEffect(() => {
+  const cards = JSON.parse(localStorage.getItem('all_movies') || '[]');
+  updateMovies(cards);
+  const favoriteCards = JSON.parse(localStorage.getItem('all_favorite_movies') || '[]');
+  if (favoriteCards) {
+    setFavoriteCards(favoriteCards);
+  }
+  getFavoriteMovies(favoriteCards);
+}, []);*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 const updateFilteredMovies = (cards) => {
-  const formatted = cards.map(card => ({
-      ...card,
-      _id: (favoriteCards.find(likedCard => likedCard.movieId === card.id) || {})._id,
-      isLiked: isLikedCard(card)
-    })
-  )
-  
-  setFilteredCards(formatted);
+  setFilteredCards(cards);
   localStorage.setItem('all_filtered_movies', JSON.stringify(cards));
 }
 
@@ -251,10 +255,10 @@ const onSubmitSearch = () => {
   //setisLoading(true)
   //setTimeout(() => {
       if (query.length){
-          const filteredCards = cards.filter(
+          const filteredCards = cards.filter (
               (card) => card.nameRU.toLowerCase().indexOf(query) >= 0,
-          );
-          //console.log(filteredCards);
+      );
+          console.log(filteredCards);
           updateFilteredMovies(filteredCards)
           //setisLoading(false)
       } else {
@@ -277,10 +281,12 @@ useEffect(() => {
 
 }, [])
 
-//фильтрация результата поиска короткометражек
+
+//фильтрация результата поиска
 const searchResult = filteredCards.filter((card) => !shortCards || card.duration <= 40)
-const searchFavoriteResult = favoriteCards.filter((card) => !shortCards || card.duration <= 40)
-////////////////////////////////////////////////////////////////////////////////////////////////////////F
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 // Отправляем запрос в API и обновляем значения профиля
 function handleUpdateUser (dataUser) {
   console.log(dataUser)
@@ -303,13 +309,15 @@ function handleUpdateUser (dataUser) {
   })
   //.finally(() => setisLoadingButton(false)); 
 }
+  
 
   // хук для автологина при обновлении страницы
   // если получаем данные пользователя значит, авторизационные куки передаются успешно
 useEffect(() => {
+  if (loggedIn) {
     mainApi.getUserData()
     .then((res) => {
-    console.log(res)
+    //console.log(res)
       if (res) {
         setLoggedIn(true);
           navigate({ replace: false });
@@ -318,6 +326,7 @@ useEffect(() => {
     .catch(() => {
       setLoggedIn(false);
     });
+  }
 }, []);
 
 function signOut() {
@@ -327,7 +336,13 @@ function signOut() {
   setCurrentUser('');
 }
 
-
+  /*<Route exact path='/*' element = {
+    <ProtectedRoute loggedIn={loggedIn} >
+      <Route exact path='/profile' element = {<Profile signOut={signOut}/>} />
+      <Route exact path='/movies/*' element = {<Movies />} />
+      <Route exact path='/saved-movies/*' element = {<Movies />} />
+    </ProtectedRoute> 
+  }/>*/
 
   return (
     <div className="App">
@@ -361,7 +376,7 @@ function signOut() {
           <Route exact path='/saved-movies' element = {
             <ProtectedRoute loggedIn={loggedIn} >
               <Movies 
-                cards={searchFavoriteResult}
+                cards={favoriteCards}
                 query={query}
                 shortCards={shortCards}
                 updateQuery={updateQuery}

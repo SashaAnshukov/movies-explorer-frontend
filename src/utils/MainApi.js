@@ -57,12 +57,13 @@ export class MainApi {
                 description: data.description,
                 image: `${this._apiURL}${data.image.url}`,
                 trailerLink: data.trailerLink,
-                thumbnail: `${this._apiURL}${data.image.formats.thumbnail.url}`,
+                thumbnail: `${this._apiURL}${data.image.url}`,
                 movieId: data.id,
                 nameRU: data.nameRU,
                 nameEN: data.nameEN,
             }),
         })
+        .then(res => res.json())
     }
 
     // удаление из избранного
@@ -91,7 +92,7 @@ export class MainApi {
 
 const mainApi = new MainApi({
     adress: 'https://api.jet.nomoredomains.work', //мой бэк
-    apiURL: 'https://api.nomoreparties.co/beatfilm-movies' // бэк с фильмами
+    apiURL: 'https://api.nomoreparties.co' // бэк с фильмами
     //token : '86724e9f-206a-43a9-ab92-a5e8d301d078'
 })
 

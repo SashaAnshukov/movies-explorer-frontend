@@ -15,7 +15,7 @@ function Login ({authorization}) {
         e.preventDefault();
         // Передаём значения управляемых компонентов во внешний обработчик
         authorization( values.email, values.password );
-        resetForm();
+        
     }
 
     return (

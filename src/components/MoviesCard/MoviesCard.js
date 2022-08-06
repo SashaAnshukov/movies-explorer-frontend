@@ -1,13 +1,16 @@
 import {useState} from 'react';
-import {Routes, Route} from 'react-router-dom';
-import {useContext} from 'react';
+import {useLocation} from 'react-router-dom';
+//import {useLocation} from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 
-function MoviesCard({favoriteCards, onCardLike, isLikedCard, card}) {
+function MoviesCard({onCardLike, card}) {
+
+    const {pathname} = useLocation();
+    const image = pathname === `${"/movies"}` ? `https://api.nomoreparties.co${card.image.url}`: `${card.image}`;
 
     // Определяем, добавил ли текущий пользователь в избранное этот фильм
-    const isLiked = isLikedCard(card);
+    const {isLiked} = card;
     
     const cardLikeButtonClassName = (
         `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__mesto-like_active' : ''}`
@@ -54,7 +57,8 @@ function MoviesCard({favoriteCards, onCardLike, isLikedCard, card}) {
                         <a href={card.trailerLink} target="_blank" rel="noreferrer" >
                             <img 
                                 className="MoviesCard__image"
-                                src={`https://api.nomoreparties.co${card.image.url}`} alt={card.nameRU}
+                                src={image}
+                                alt={card.nameRU}
                             />
                         </a>
                     </article>
