@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-
-Ссылка на pullrequest - 
-Ссылка на сайт - https://api.jet.nomoredomains.work
-Публичный IPv4 - 51.250.1.11
-Ссылка на макет - https://disk.yandex.ru/d/9gUDSOxhjJqo5A
-=======
 ## Link to pullrequest 
 [https://github.com/SashaAnshukov/movies-explorer-frontend/pull/2](https://github.com/SashaAnshukov/movies-explorer-frontend/pull/2)
->>>>>>> f5cdb20628163cbc083fb1fa2855a1e9e20b1c6b
 
 # Getting Started with Create React App
 
