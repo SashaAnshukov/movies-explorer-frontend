@@ -1,5 +1,5 @@
 ### Ссылка на сайт
-https://api.jet.nomoredomains.work
+https://jet.nomoredomains.work
 ### Публичный IPv4
 51.250.1.11
 ### Ссылка на макет
