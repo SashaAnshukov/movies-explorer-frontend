@@ -1,3 +1,9 @@
+
+Ссылка на pullrequest - 
+Ссылка на сайт - https://api.jet.nomoredomains.work
+Публичный IPv4 - 51.250.1.11
+Ссылка на макет - https://disk.yandex.ru/d/9gUDSOxhjJqo5A
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
