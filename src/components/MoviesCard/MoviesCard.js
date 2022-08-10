@@ -8,13 +8,22 @@ function MoviesCard({onCardLike, card}) {
 
     const {pathname} = useLocation();
     const image = pathname === `${"/movies"}` ? `https://api.nomoreparties.co${card.image.url}`: `${card.image}`;
+    
 
     // Определяем, добавил ли текущий пользователь в избранное этот фильм
     const {isLiked} = card;
-    
-    const cardLikeButtonClassName = (
+
+    const cardLikeButtonClassName = pathname === `${"/movies"}` 
+    ? (
         `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__mesto-like_active' : ''}`
-    );
+    )
+    : (
+        `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__remove-like' : ''}`
+    )
+    
+    /*const cardLikeButtonClassName = (
+        `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__mesto-like_active' : ''}`
+    );*/
 
     function handleLikeClick(evt) {
         evt.preventDefault();
@@ -49,7 +58,7 @@ function MoviesCard({onCardLike, card}) {
                                 <button
                                     onClick={handleLikeClick}
                                     className = {cardLikeButtonClassName}
-                                    type ="button" aria-label="add-favorite" 
+                                    type ="button" aria-label= "add-favorite" 
                                     /*className="rectangle__mesto-like opacity-like"*/
                                 >
                                 </button>

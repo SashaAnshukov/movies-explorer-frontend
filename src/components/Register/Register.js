@@ -15,7 +15,7 @@ function Register ({registration}) {
         e.preventDefault();
         // Передаём значения управляемых компонентов во внешний обработчик
         registration( values.name, values.email, values.password );
-        resetForm();
+        //resetForm();
     }
 
     return (

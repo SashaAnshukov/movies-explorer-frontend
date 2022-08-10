@@ -19,7 +19,8 @@ import error from "../../images/error.svg";
 import {useState, useEffect} from 'react';
 
 function App() {
-  const navigate = useNavigate();
+
+  
 
   const [currentUser , setCurrentUser] = useState('');
   
@@ -27,11 +28,15 @@ function App() {
   const [cards, setCards] = useState([]); // стэйт всех фильмов
   const [favoriteCards, setFavoriteCards] = useState([]); // стэйт избранных фильмов из нашего апи
   const [query, setQuery] = useState(''); // стэйт поисковой строки
+  const [favoriteQuery, setFavoriteQuery] = useState('');
   const [filteredCards, setFilteredCards] = useState([]); // стэйт результатов поиска по фильмам
+  const [filteredFavoriteCards, setFilteredFavoriteCards] = useState([]); //стэйт результатов поиска по избранным фильмам
   const [shortCards, setShortCards] = useState(false); // стэйт короткометражек (чекбокса)
   //const [countFilms, setCountFilms] = useState(moviesCount);
   const [showToolTip, setShowToolTip] = useState(false);// стэйт для модального окна при успешной/не успешной регистрации
   const [info, setInfo] = useState({ image: "", text: "" });// стэйт для данных модального окна при успешной/не успешной регистрации
+
+  const navigate = useNavigate();
 
 function ChooseInfoTooltip (info) {
   setInfo({ image: info.image, text: info.text });
@@ -60,7 +65,8 @@ function registration(name, email, password) {
       image: success,
       text:'Вы успешно зарегистрировались'
     })
-    setTimeout(navigate, 3000, '/signin');
+    setLoggedIn(true);
+    setTimeout(navigate, 3000, '/movies');
   })
   .catch((err) => {
     setTimeout(setShowToolTip, 1000, true);
@@ -140,10 +146,6 @@ useEffect(() => {
 }, [loggedIn]);
 
 useEffect(() => {
-  updateFilteredMovies(filteredCards)
-}, [favoriteCards])
-
-useEffect(() => {
   const localCards = localStorage.getItem('all_movies');
   const localFavoriteCards = localStorage.getItem('all_favorite_movies');
   
@@ -218,6 +220,36 @@ const deleteFavoriteMovie = (card) => {
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+useEffect(() => {
+  const localFilteredCards = localStorage.getItem('all_filtered_movies');
+  
+  if(localFilteredCards && localFilteredCards.length){
+    try {
+      updateFilteredMovies(JSON.parse(localFilteredCards))
+    }
+    catch (err){
+      localStorage.removeItem('all_filtered_movies');
+      
+    }
+  }
+  
+}, [favoriteCards])
+
+/*useEffect(() => {
+  const localFilteredFavoriteCards = localStorage.getItem('all_filtered_favorite_movies');
+  console.log('localFilteredFavoriteCards', localFilteredFavoriteCards)
+  if(localFilteredFavoriteCards && localFilteredFavoriteCards.length){
+    try {
+      updateFilteredFavoriteMovies(JSON.parse(localFilteredFavoriteCards))
+    }
+    catch (err){
+      localStorage.removeItem('all_filtered_favorite_movies');
+      
+    }
+  }
+  
+}, [])*/
+
 const updateFilteredMovies = (cards) => {
   const formatted = cards.map(card => ({
       ...card,
@@ -229,6 +261,12 @@ const updateFilteredMovies = (cards) => {
   setFilteredCards(formatted);
   localStorage.setItem('all_filtered_movies', JSON.stringify(cards));
 }
+
+/*const updateFilteredFavoriteMovies = (favoriteCards) => {
+  
+  setFilteredFavoriteCards(favoriteCards);
+  localStorage.setItem('all_filtered_favorite_movies', JSON.stringify(favoriteCards));
+}*/
 
 const updateShortMovies = (shortCards) => {
   //setisLoading(true)
@@ -246,13 +284,20 @@ const updateQuery = (query) => {
   localStorage.setItem('all_query', query);
 }
 
+/*const updateFavoriteQuery = (favoriteQuery) => {
+  favoriteQuery = favoriteQuery.toLowerCase();
+  setFavoriteQuery(favoriteQuery);
+  //localStorage.setItem('all_favorite_query', favoriteQuery);
+}*/
+
+///////////////////////////////Поиск по всем фильмам\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const onSubmitSearch = () => {
   // Запрещаем браузеру переходить по адресу формы
   //setisLoading(true)
   //setTimeout(() => {
       if (query.length){
           const filteredCards = cards.filter(
-              (card) => card.nameRU.toLowerCase().indexOf(query) >= 0,
+            (card) => card.nameRU.toLowerCase().indexOf(query) >= 0,
           );
           //console.log(filteredCards);
           updateFilteredMovies(filteredCards)
@@ -263,44 +308,89 @@ const onSubmitSearch = () => {
       }
   //}, 600)
 }
+
+///////////////////////////////Поиск по избранным фильмам\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*const onSubmitFavoriteSearch = () => {
+  
+      if (favoriteQuery.length){
+          const filteredFavoriteCards = favoriteCards.filter(
+            (card) => card.nameRU.toLowerCase().indexOf(favoriteQuery) >= 0,
+          );
+          
+          updateFilteredFavoriteMovies(filteredFavoriteCards)
+          
+      } else {
+        updateFilteredFavoriteMovies(favoriteCards)
+        
+      }
+  
+}*/
+
+
 useEffect(() => {
 
-  updateFilteredMovies(
+  /*updateFilteredMovies(
     JSON.parse(localStorage.getItem('all_filtered_movies') || '[]')
-  );
+  );*/
 
   updateQuery(localStorage.getItem('all_query') || '');
-
+  //updateFavoriteQuery(localStorage.getItem('all_favorite_query') || '');
   updateShortMovies(
     JSON.parse(localStorage.getItem('all_short_movies') || 'false')
   );
 
 }, [])
 
+/*useEffect(() => {
+
+  updateFavoriteQuery(localStorage.getItem('all_favorite_query') || '');
+
+}, [])*/
+
 //фильтрация результата поиска короткометражек
 const searchResult = filteredCards.filter((card) => !shortCards || card.duration <= 40)
 const searchFavoriteResult = favoriteCards.filter((card) => !shortCards || card.duration <= 40)
+//const searchFilteredFavoriteResult = filteredFavoriteCards.filter((card) => !shortCards || card.duration <= 40)
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////F
 // Отправляем запрос в API и обновляем значения профиля
 function handleUpdateUser (dataUser) {
   console.log(dataUser)
-  mainApi.setUserData(dataUser).then((res) => {
-    setTimeout(setShowToolTip, 1000, true);
-    ChooseInfoTooltip({
-      image: success,
-      text:'Вы успешно обновили данные пользователя'
+  if (dataUser.name !== currentUser.name){
+    mainApi.setUserData(dataUser).then((res) => {
+      setTimeout(setShowToolTip, 1000, true);
+      ChooseInfoTooltip({
+        image: success,
+        text:'Вы успешно обновили данные пользователя'
+      })
+      setTimeout(3000);
+      setCurrentUser(res.data);
     })
-    setTimeout(3000);
-    setCurrentUser(res.data);
-  })
-  .catch(err => {
-    setTimeout(setShowToolTip, 1000, true);
-    ChooseInfoTooltip({
-      image: error,
-      text: "Что-то пошло не так! Попробуйте еще раз!",
-    });
-    console.log (`Ошибка: ${err}`)
-  })
+    .catch(err => {
+      //console.log(error.statusCode)
+      if (err === 'Ошибка 409') {
+        setTimeout(setShowToolTip, 1000, true);
+        ChooseInfoTooltip({
+          image: error,
+          text: "Пользователь с таким email уже существует",
+        });
+        //console.log (`Ошибка: ${err}`)
+      } else {
+        setTimeout(setShowToolTip, 1000, true);
+        ChooseInfoTooltip({
+          image: error,
+          text: "Что-то пошло не так! Попробуйте еще раз!",
+        });
+        console.log (`Ошибка: ${err}`)
+      }
+    })
+  }else {
+      setTimeout(setShowToolTip, 1000, true);
+      ChooseInfoTooltip({
+        image: error,
+        text: "Имя совпадает с текущим",
+      });
+  }
   //.finally(() => setisLoadingButton(false)); 
 }
 
@@ -312,7 +402,7 @@ useEffect(() => {
     console.log(res)
       if (res) {
         setLoggedIn(true);
-          navigate({ replace: false });
+        navigate({ replace: false });
       }
     })
     .catch(() => {
@@ -341,7 +431,7 @@ function signOut() {
           <Route exact path='/signup' element = {<Register registration = {registration}/>} />
           <Route exact path='/signin' element = {<Login authorization = {authorization} />} />
           <Route exact path='/' element = {<Main />} />
-          <Route exact path='/404' element = {<NotFound />} />
+          <Route exact path='/*' element = {<NotFound />} />
 
           <Route exact path='/movies' element = {
             <ProtectedRoute loggedIn={loggedIn} >
@@ -361,7 +451,7 @@ function signOut() {
           <Route exact path='/saved-movies' element = {
             <ProtectedRoute loggedIn={loggedIn} >
               <Movies 
-                cards={searchFavoriteResult}
+                cards={ searchFavoriteResult }
                 query={query}
                 shortCards={shortCards}
                 updateQuery={updateQuery}
@@ -379,10 +469,9 @@ function signOut() {
             </ProtectedRoute> 
           }/>
 
-          <Route path="/"
-            element = {loggedIn ? <Navigate to="/movies" /> : <Navigate to="/signin" />}
+          <Route path='/'
+            element = {loggedIn ? <Navigate to='/movies' /> : <Navigate to='/' />}
           />
-
         </Routes>
 
         <Popup 

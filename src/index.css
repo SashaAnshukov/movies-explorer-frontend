@@ -70,6 +70,7 @@
 @import url('./components/MoviesCard/MoviesCard.css');
 @import url('./components/MoviesCard/__mesto-like/MoviesCard__mesto-like.css');
 @import url('./components/MoviesCard/__mesto-like/_active/rectangle__mesto-like_active.css');
+@import url('./components/MoviesCard/__remove-like/MoviesCard__remove-like.css');
 @import url('./components/MoviesCard/__image/MoviesCard__image.css');
 @import url('./components/MoviesCard/__info/MoviesCard__info.css');
 @import url('./components/MoviesCard/__text/MoviesCard__text.css');
