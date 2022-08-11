@@ -235,7 +235,7 @@ useEffect(() => {
   
 }, [favoriteCards])
 
-/*useEffect(() => {
+useEffect(() => {
   const localFilteredFavoriteCards = localStorage.getItem('all_filtered_favorite_movies');
   console.log('localFilteredFavoriteCards', localFilteredFavoriteCards)
   if(localFilteredFavoriteCards && localFilteredFavoriteCards.length){
@@ -248,7 +248,7 @@ useEffect(() => {
     }
   }
   
-}, [])*/
+}, [])
 
 const updateFilteredMovies = (cards) => {
   const formatted = cards.map(card => ({
@@ -262,11 +262,11 @@ const updateFilteredMovies = (cards) => {
   localStorage.setItem('all_filtered_movies', JSON.stringify(cards));
 }
 
-/*const updateFilteredFavoriteMovies = (favoriteCards) => {
+const updateFilteredFavoriteMovies = (favoriteCards) => {
   
   setFilteredFavoriteCards(favoriteCards);
   localStorage.setItem('all_filtered_favorite_movies', JSON.stringify(favoriteCards));
-}*/
+}
 
 const updateShortMovies = (shortCards) => {
   //setisLoading(true)
@@ -284,11 +284,11 @@ const updateQuery = (query) => {
   localStorage.setItem('all_query', query);
 }
 
-/*const updateFavoriteQuery = (favoriteQuery) => {
+const updateFavoriteQuery = (favoriteQuery) => {
   favoriteQuery = favoriteQuery.toLowerCase();
   setFavoriteQuery(favoriteQuery);
-  //localStorage.setItem('all_favorite_query', favoriteQuery);
-}*/
+  localStorage.setItem('all_favorite_query', favoriteQuery);
+}
 
 ///////////////////////////////Поиск по всем фильмам\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const onSubmitSearch = () => {
@@ -310,7 +310,7 @@ const onSubmitSearch = () => {
 }
 
 ///////////////////////////////Поиск по избранным фильмам\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/*const onSubmitFavoriteSearch = () => {
+const onSubmitFavoriteSearch = () => {
   
       if (favoriteQuery.length){
           const filteredFavoriteCards = favoriteCards.filter(
@@ -324,7 +324,7 @@ const onSubmitSearch = () => {
         
       }
   
-}*/
+}
 
 
 useEffect(() => {
@@ -334,7 +334,7 @@ useEffect(() => {
   );*/
 
   updateQuery(localStorage.getItem('all_query') || '');
-  //updateFavoriteQuery(localStorage.getItem('all_favorite_query') || '');
+  updateFavoriteQuery(localStorage.getItem('all_favorite_query') || '');
   updateShortMovies(
     JSON.parse(localStorage.getItem('all_short_movies') || 'false')
   );
@@ -349,8 +349,8 @@ useEffect(() => {
 
 //фильтрация результата поиска короткометражек
 const searchResult = filteredCards.filter((card) => !shortCards || card.duration <= 40)
-const searchFavoriteResult = favoriteCards.filter((card) => !shortCards || card.duration <= 40)
-//const searchFilteredFavoriteResult = filteredFavoriteCards.filter((card) => !shortCards || card.duration <= 40)
+const  searchFavoriteResult = favoriteCards.filter((card) => !shortCards || card.duration <= 40)
+const searchFilteredFavoriteResult = filteredFavoriteCards.filter((card) => !shortCards || card.duration <= 40)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////F
 // Отправляем запрос в API и обновляем значения профиля
@@ -451,14 +451,14 @@ function signOut() {
           <Route exact path='/saved-movies' element = {
             <ProtectedRoute loggedIn={loggedIn} >
               <Movies 
-                cards={ searchFavoriteResult }
-                query={query}
+                cards={ onSubmitFavoriteSearch ? searchFilteredFavoriteResult : searchFavoriteResult }
+                query={favoriteQuery}
                 shortCards={shortCards}
-                updateQuery={updateQuery}
+                updateQuery={updateFavoriteQuery}
                 updateShortMovies={updateShortMovies}
                 isLikedCard={isLikedCard}
                 onCardLike={onCardLike}
-                onSubmitSearch={onSubmitSearch}
+                onSubmitSearch={onSubmitFavoriteSearch}
               />
             </ProtectedRoute> 
           }/> 
