@@ -52,7 +52,6 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
         
     }, [])
 
-
     function onSubmitt(evt) {
         //evt.preventDefault();
         onSubmitSearch(query);
@@ -116,7 +115,7 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
                     return <MoviesCard 
                         onCardLike = {onCardLike}
                         isLikedCard= {isLikedCard}
-                        card={card} key={card.id}
+                        card={card} key={card.id || card.movieId}
                     />
                 })}
             </section>

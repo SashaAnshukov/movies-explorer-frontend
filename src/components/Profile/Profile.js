@@ -11,8 +11,8 @@ function Profile ({onUpdateUser, signOut}) {
     const { register, handleSubmit, formState: { errors } } = useForm({criteriaMode: "all"});
     
     // Стейт, в котором содержится значение инпута - name, mail
-    const [name, setInputName] = useState('');
-    const [email, setInputEmail] = useState('');
+    const [name, setInputName] = useState(currentUser.name);
+    const [email, setInputEmail] = useState(currentUser.email);
 
     // Обработчики изменения инпута обновляют стейт
 
@@ -100,7 +100,7 @@ function Profile ({onUpdateUser, signOut}) {
                                         message: "Не верный формат почты"
                                     }
                                 })}
-                                value={email || (currentUser.email) || ''}
+                                value={email || ''}
                                 onChange={handleChangeEmail}
                                 type="text"
                                 className="Profile__input Profile__input_text_namePlace"
