@@ -390,7 +390,7 @@ function App() {
   // Отправляем запрос в API и обновляем значения профиля
   function handleUpdateUser (dataUser) {
     console.log(dataUser)
-    if (dataUser.name !== currentUser.name){
+    if (dataUser.email !== currentUser.email){
       mainApi.setUserData(dataUser).then((res) => {
         setTimeout(setShowToolTip, 1000, true);
         ChooseInfoTooltip({
