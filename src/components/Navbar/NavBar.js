@@ -4,17 +4,17 @@ import { Link, useLocation } from 'react-router-dom';
 function NavBar({ loggedIn}) {
   const {pathname} = useLocation();
 
-  const textBarRegistration = pathname === `${"/sign-up"}` ? "Регистрация" : "Регистрация";
-  const textBarAuthorization = pathname === `${"/sign-in"}` ? "Войти" : "Войти";
+  const textBarRegistration = pathname === `${"/signup"}` ? "Регистрация" : "Регистрация";
+  const textBarAuthorization = pathname === `${"/signin"}` ? "Войти" : "Войти";
   const textBarMovies = pathname === `${"/movies"}` ? "Фильмы" : "Фильмы";
   const textBarSavedMovies = pathname === `${"/saved-movies"}` ? "Сохранённые фильмы" : "Сохранённые фильмы";
   const textBarProfile = pathname === `${"/profile"}` ? "Аккаунт": "Аккаунт";
 
-  const linkRouteRegistration = `${pathname === "/sign-up" ? "/" : "/"}`;
-  const linkRouteAuthorization = `${pathname === "/sign-in" ? "/" : "/"}`;
+  const linkRouteRegistration = `${pathname === "/signup" ? "/" : "/"}`;
+  const linkRouteAuthorization = `${pathname === "/signin" ? "/" : "/"}`;
   const linkRouteMovies = `${pathname === "/movies" ? "/main" : "/main"}`;
-  const linkRouteSavedMovies = `${pathname === "/sign-in" ? "/main" : "/main"}`;
-  const linkRouteProfile = `${pathname === "/sign-in" ? "/main" : "/main"}`;
+  const linkRouteSavedMovies = `${pathname === "/signin" ? "/main" : "/main"}`;
+  const linkRouteProfile = `${pathname === "/signin" ? "/main" : "/main"}`;
 
   
   
@@ -47,8 +47,8 @@ function NavBar({ loggedIn}) {
         </>)
       :
         (<>
-          <Link to='/sign-up' onClick= {linkRouteRegistration} className="NavBar__link_startScreen">{textBarRegistration}</Link>
-          <Link to='/sign-in' onClick= {linkRouteAuthorization} className="NavBar__link_startScreen">{textBarAuthorization}</Link>
+          <Link to='/signup' onClick= {linkRouteRegistration} className="NavBar__link_startScreen">{textBarRegistration}</Link>
+          <Link to='/signin' onClick= {linkRouteAuthorization} className="NavBar__link_startScreen">{textBarAuthorization}</Link>
         </>)
       }
     </nav>

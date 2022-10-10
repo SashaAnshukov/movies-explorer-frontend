@@ -1,34 +1,51 @@
 import {useState} from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
+//import {useLocation} from 'react';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-function MoviesCard({handleClick, onBookmarkClick, isSavedCard, card}) {
+
+function MoviesCard({onCardLike, card}) {
+
+    const {pathname} = useLocation();
+    const image = pathname === `${"/movies"}` ? `https://api.nomoreparties.co${card.image.url}`: `${card.image}`;
     
-    //const isSaved = isSavedCard(card);
 
+    // Определяем, добавил ли текущий пользователь в избранное этот фильм
+    const {isLiked} = card;
+
+    const cardLikeButtonClassName = pathname === `${"/movies"}` 
+    ? (
+        `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__mesto-like_active' : ''}`
+    )
+    : (
+        `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__remove-like' : ''}`
+    )
+    
     /*const cardLikeButtonClassName = (
-        `MoviesCard__mesto-like ${isSaved ? 'MoviesCard__mesto-like_active opacity-like' : ''}`
+        `MoviesCard__mesto-like ${isLiked ? 'MoviesCard__mesto-like_active' : ''}`
     );*/
 
-    const cardLikeButtonClassName = (
-        `MoviesCard__mesto-like`
-    );
+    function handleLikeClick(evt) {
+        evt.preventDefault();
+        onCardLike(card, !isLiked);
+    }
+
+    /*function handleClick(evt) {
+        evt.preventDefault();
+        handleFavouritesClick(card);
+        evt.target.classList.toggle('MoviesCard__mesto-like_active');
+    }*/
+
 
     function durationTime(duration) {
         const hour = Math.round(duration/60);
         const min = duration-60;
         return `${hour}ч ${min}м`;
     }
-
-    function handleBookmarkClick(evt) {
-        evt.preventDefault();
-        evt.target.classList.toggle('MoviesCard__mesto-like_active');
-        //onBookmarkClick(card, !isSaved);
-    }
     
     /*function handleDelete() {
         onBookmarkClick(card, false);
     }*/
-
 
     return (
                 <div className="rectangle-item-template">
@@ -39,19 +56,20 @@ function MoviesCard({handleClick, onBookmarkClick, isSavedCard, card}) {
                                 <span className="MoviesCard__duration">{durationTime(card.duration)}</span>
                             </div>
                                 <button
-                                    onClick={handleBookmarkClick}
+                                    onClick={handleLikeClick}
                                     className = {cardLikeButtonClassName}
-                                    type ="button" aria-label="add-favorite" 
+                                    type ="button" aria-label= "add-favorite" 
                                     /*className="rectangle__mesto-like opacity-like"*/
                                 >
                                 </button>
                         </div>
-                        <img 
-                            className="MoviesCard__image" onClick={handleClick}
-                            src={`https://api.nomoreparties.co${card.image.url}`} alt={card.nameRU}
-                        />
-                        
-                        
+                        <a href={card.trailerLink} target="_blank" rel="noreferrer" >
+                            <img 
+                                className="MoviesCard__image"
+                                src={image}
+                                alt={card.nameRU}
+                            />
+                        </a>
                     </article>
                 </div>
     );

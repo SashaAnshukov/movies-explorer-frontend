@@ -1,0 +1,10 @@
+.Profile__input-error {
+    display: flex;
+    top: calc(100% + 3px);
+    justify-content: end;
+    margin: 0;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+}

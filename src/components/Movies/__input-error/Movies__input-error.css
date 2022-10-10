@@ -1,0 +1,13 @@
+.Movies__input-error {
+    position: absolute;
+    top: calc(100% + 3px);
+    max-width: 1140px;
+    width: 89.0625vw;
+    justify-content: start;
+    left: 120px;
+    top: 220px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+}

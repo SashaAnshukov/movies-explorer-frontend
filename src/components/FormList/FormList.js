@@ -13,7 +13,7 @@ function Formlist ({title, name, onSubmit, buttonText, children}) {
             </div>
             <h2 className="Formlist__title">{title}</h2>
 
-            <form name={name} onSubmit={onSubmit}>
+            <form name={name} onSubmit={onSubmit} noValidate>
                 <div className="FormList__form">
                 {children}
                 </div>

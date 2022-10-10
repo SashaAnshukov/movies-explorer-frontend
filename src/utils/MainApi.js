@@ -1,58 +1,99 @@
 export class MainApi {
-    constructor(options) {
-    this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
-}
-
-_getResponseData(response) {
-    return response.then((res, req) => {
-        if (res.ok) {
-        return res.json();
-        }
-        if (res.status === 409 || res.status === 404 || res.status === 400) {
-            return Promise.reject({
-            status: res.status,
-            text: res.statusText,
-            });
-        }
-        return Promise.reject(
-            new Error(`Ошибка получения данных: ${res.status} ${res.statusText}`)
-        );
-    });
+    constructor({adress, apiURL}) {
+        this._adress = adress;
+        this._apiURL = apiURL
     }
 
-createMovie(data) {
-    const token = localStorage.getItem("token");
-    return this._getResponseData(
-        fetch(`${this._baseUrl}/movies`, {
-        method: "POST",
-        headers: {
-            ...this._headers,
-            Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-            country: data.country,
-            director: data.director,
-            duration: data.duration,
-            year: data.year,
-            description: data.description,
-            image: data.image,
-            trailer: data.trailer,
-            thumbnail: data.image,
-            movieId: data.id,
-            nameRU: data.nameRU,
-            nameEN: data.nameEN,
-        }),
+    getUserData() {
+        return fetch(`${this._adress}/users/me`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
         })
-    );
+        .then(this._checkResponse)
+    }
+
+    setUserData(data) {
+        return fetch(`${this._adress}/users/me`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email
+            })
+        })
+        .then(this._checkResponse)
+    }
+
+    getSavedMovies() {
+        return fetch(`${this._adress}/movies`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        })
+        .then(this._checkResponse)
+    }
+
+    //добавление в избранное
+    createMovie(data) {
+        return fetch(`${this._adress}/movies`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                country: data.country,
+                director: data.director,
+                duration: data.duration,
+                year: data.year,
+                description: data.description,
+                image: `${this._apiURL}${data.image.url}`,
+                trailerLink: data.trailerLink,
+                thumbnail: `${this._apiURL}${data.image.url}`,
+                movieId: data.id,
+                nameRU: data.nameRU,
+                nameEN: data.nameEN,
+            }),
+        })
+        .then(res => res.json())
+    }
+
+    // удаление из избранного
+    deleteMovie(id) {
+        return fetch(`${this._adress}/movies/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        })
+        .then(this._checkResponse)
+    }
+
+    //метод проверки ответа от сервера
+    _checkResponse(response) {
+        // тут проверка ответа
+        if (response.ok) {
+            return response.json();
+        }
+        return Promise.reject(`Ошибка ${response.status}`);
     }
 }
+
+
 
 const mainApi = new MainApi({
-    baseUrl: "https://api.nomoreparties.co/beatfilm-movies",
-    headers: {
-        "Content-Type": "application/json",
-    },
-});
+    adress: 'https://api.jet.nomoredomains.work', //мой бэк
+    apiURL: 'https://api.nomoreparties.co' // бэк с фильмами
+    //token : '86724e9f-206a-43a9-ab92-a5e8d301d078'
+})
 
 export default mainApi;

@@ -3,38 +3,20 @@ import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import FormList from '../FormList/FormList';
 import FormComponent from '../FormComponent/FormComponent';
+import {useFormWithValidation} from "../../hooks/useForm"
 
 function Login ({authorization}) {
-    // Стейт, в котором содержится значение инпута - mail, password
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    // Обработчики изменения инпута обновляют стейт
-
-    function handleChangeEmail(e) {
-        setEmail(e.target.value);
-    }
-
-    function handleChangePassword(e) {
-        setPassword(e.target.value);
-    }
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
     //Отправляем данные на сервер
     function handleSubmit(e) {
         // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
         // Передаём значения управляемых компонентов во внешний обработчик
-        authorization({ email, password });
-
+        authorization( values.email, values.password );
+        
     }
-
-    //очищаем инпуты при каждом открытии модального окна
-    /*useEffect(() => {
-        if (isOpen) {
-            setMail('');
-            setPassword('')
-        }
-    }, [isOpen])*/
 
     return (
         <div>
@@ -42,15 +24,18 @@ function Login ({authorization}) {
                 title = {'Рады видеть!'} onSubmit={handleSubmit}
                 name={'Вход'}  buttonText = {'Войти'}
             >
-                <FormComponent name = {'E-mail'} value = {email} onChange = {handleChangeEmail}
-                    minLength = {'1'} maxLength = {'30'} required type = {'text'} nameInput ={'Email'}
+                <FormComponent name = {'E-mail'} value = {values.email || ''} onChange = {handleChange}
+                    minLength = {'1'} maxLength = {'30'} required type = {'email'} nameInput ={'email'}
                 />
-                <FormComponent name = {'Пароль'} value = {password} onChange = {handleChangePassword}
+                <p className="Formlist__input-error">{errors.email}</p>
+                
+                <FormComponent name = {'Пароль'} value = {values.password || ''} onChange = {handleChange}
                     minLength = {'4'}  required type = {'password'} nameInput ={'password'}
                 />
+                <p className="Formlist__input-error">{errors.password}</p>
             </FormList>
             <p className="FormList__button_span">Ещё не зарегистрированы?
-                <Link className="FormList__button_link" to='/sign-up'> Регистрация</Link>
+                <Link className="FormList__button_link" to='/signup'> Регистрация</Link>
             </p>
         </div>
     )

@@ -2,13 +2,9 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
 import mainApi from "../../utils/MainApi";
 import {useState, useEffect} from 'react';
-import {useForm} from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
 
 function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateShortMovies,
     onCardLike, isLikedCard}) {
-
-    const { register, handleSubmit, formState: { errors } } = useForm({criteriaMode: "all"});
 
     const getloadStep = (width) => {
         if (width >= 1280) {
@@ -29,8 +25,10 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
             return 5;
         }
     }
-    const [width, setWidth] = useState(window.innerWidth); //стэйт ширины экрана
-    const [visibleFilmsCount, setVisibleFilmsFilmsCount] = useState(getInitialCount(width)); //сколько сейчас отображается фильмов
+    const [width, setWidth] = useState(window.innerWidth);//стэйт ширины экрана
+    //сколько сейчас отображается фильмов
+    const [visibleFilmsCount, setVisibleFilmsFilmsCount] = useState(getInitialCount(width));
+
     const [isLoading, setisLoading] = useState(false); //стэйт прелоадера
 
     //console.log('width:', width);
@@ -52,8 +50,9 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
         
     }, [])
 
-    function onSubmitt(evt) {
-        //evt.preventDefault();
+
+    function handleSubmit(evt) {
+        evt.preventDefault();
         onSubmitSearch(query);
     }
 
@@ -70,18 +69,12 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
             
             <div className="Movies__container">
 
-                <form className="Movies__search" onSubmit={handleSubmit(onSubmitt)} noValidate>
+                <form className="Movies__search" onSubmit={handleSubmit}>
                     <div className= "Movies__search-input">
-                        <input
-                            placeholder="Фильм"
-                            {...register("Search", {
-                                required: "Нужно вести ключевое слово",
-                            })}
-                            value ={query}
-                            type="text" 
-                            required
+                        <input 
+                            type="text" className="Movies__search-field"
+                            placeholder="Фильм" value ={query} required
                             onChange = {(event)=> updateQuery(event.target.value)} 
-                            className="Movies__search-field"
                         />
                         <div 
                             alt="" className="Movies__search-icon">
@@ -99,33 +92,25 @@ function Movies({cards, query, shortCards, updateQuery, onSubmitSearch, updateSh
                     <h2 className="Movies__checkbox_name"> Короткометражки </h2>
                 </div>
             </div>
-            <ErrorMessage
-                errors={errors}
-                name="Search"
-                render={({ messages }) =>
-                    messages &&
-                    Object.entries(messages).map(([type, message]) => (
-                    <span className="Movies__input-error" key={type}>{message}</span>
-                ))}
-            />
+        
             
-            <section className="Movies__elements">
-                {/*searchResult.slice(0, countFilms)*/
-                cards.slice(0, visibleFilmsCount).map ((card) => {
-                    return <MoviesCard 
-                        onCardLike = {onCardLike}
-                        isLikedCard= {isLikedCard}
-                        card={card} key={card.id || card.movieId}
-                    />
-                })}
-            </section>
-            {isLoading && <Preloader/>}
-            {visibleFilmsCount < cards.length && (
-                <button className="Movies__add-button opacity-buttons" 
-                    type="button"onClick={addMovies}>
-                        Ещё
-                </button>   
-            )}
+                <section className="Movies__elements">
+                    {/*searchResult.slice(0, countFilms)*/
+                    cards.slice(0, visibleFilmsCount).map ((card) => {
+                        return <MoviesCard 
+                            onCardLike = {onCardLike}
+                            isLikedCard= {isLikedCard}
+                            card={card} key = {card.id}
+                        />
+                    })}
+                </section>
+                {isLoading && <Preloader/>}
+                {visibleFilmsCount < cards.length && (
+                    <button className="Movies__add-button opacity-buttons" 
+                        type="button"onClick={addMovies}>
+                            Ещё
+                    </button>   
+                )}
             
         </main>
     );
