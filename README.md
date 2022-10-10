@@ -4,6 +4,7 @@
 
 ссылка на сайт - https://jet.nomoredomains.work/
 Публичный IPv4 - 84.252.131.28
+Ссылка на репозиторий с бэкендом (2-ой этап дипломной работы) - https://github.com/SashaAnshukov/movies-explorer-api
 
 ## ⚙️ Функционал:
 
