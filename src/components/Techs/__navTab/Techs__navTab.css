@@ -8,3 +8,8 @@
     background-color: #E8E8E8;
     border: none
 }
+
+.Techs__navTab:hover {
+    background: #2BE080;
+    border-radius: 10px;
+}

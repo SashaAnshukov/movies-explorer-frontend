@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-scroll'
 
-function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, href}) {
+function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, to}) {
     
     /*const anchors = document.querySelectorAll('[href]')
     for (let anchor of anchors) {
@@ -18,7 +19,14 @@ function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, href}) {
         <>
             <button className={iconStyle} type="button">
                 <p className={navTabStyle}>
-                    <a className={textStyle} href={href} >{titleIcon}</a>
+                    <Link 
+                        className={textStyle} 
+                        to={to}
+                        smooth={true}
+                        duration={1000}
+                    >
+                        {titleIcon}
+                    </Link>
                 </p>
             </button>
         </>

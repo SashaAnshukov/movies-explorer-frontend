@@ -22,9 +22,9 @@ function NavBar({ loggedIn}) {
     <nav className="NavBar__container">
       {loggedIn ?
         (<>
-          <div className="NavBar__link_movies opacity">
-            <Link to='/movies' className="NavBar__link_movies opacity">{textBarMovies}</Link>
-            <Link to='/saved-movies'className="NavBar__link_movies opacity">{textBarSavedMovies}</Link>
+          <div className="NavBar__link_movies">
+            <Link to='/movies' className="NavBar__link_movies_text opacity">{textBarMovies}</Link>
+            <Link to='/saved-movies'className="NavBar__link_movies_text opacity">{textBarSavedMovies}</Link>
           </div>
           <Link to='/profile' className="NavBar__link_profile">{textBarProfile}</Link>
 
@@ -36,7 +36,7 @@ function NavBar({ loggedIn}) {
             </label>
             <div className="menu__overlay"></div>
             <ul className="menu__box">
-              <div className="popup__overlay"></div>
+              
               <Link to ="/" className="menu__item"> Главная </Link>
               <Link to ="/movies" className="menu__item"> Фильмы </Link>
               <Link to ="/saved-movies" className="menu__item"> Сохранённые фильмы </Link>

@@ -9,6 +9,11 @@
     border: none;
 }
 
+.NavTab__techs:hover {
+    background: #2BE080;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 321px) {
     .NavTab__techs {
         max-width: 82px;

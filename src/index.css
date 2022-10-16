@@ -4,6 +4,7 @@
 @import url('./components/App/App.css');
 
 @import url('./components/Header/header.css');
+@import url('./components/Header/__logo/header__logo.css');
 @import url('./components/opacity-buttons/opacity-buttons.css');
 @import url('./components/Preloader/Preloader.css');
 

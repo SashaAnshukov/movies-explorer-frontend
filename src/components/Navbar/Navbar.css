@@ -23,7 +23,7 @@
 
 #menu__toggle:checked ~ .menu__overlay {
   visibility: visible;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
