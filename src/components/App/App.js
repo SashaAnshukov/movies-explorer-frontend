@@ -34,7 +34,6 @@ function App() {
   const [showToolTip, setShowToolTip] = useState(false);// стэйт для модального окна при успешной/не успешной регистрации
   const [info, setInfo] = useState({ image: "", text: "" });// стэйт для данных модального окна при успешной/не успешной регистрации
 
-
   function signOut() {
     Auth.logout();
     navigate('/');

@@ -11,5 +11,6 @@
 
 .Techs__navTab:hover {
     background: #2BE080;
+    transition: 0.8s ease;
     border-radius: 10px;
 }

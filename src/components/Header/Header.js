@@ -16,7 +16,7 @@ function Header({children}) {
             ?
             (<div className="App__container">
                 <div className="header">
-                    <Link to ="/">
+                    <Link to ="/#">
                         <img className="header__logo" src={logo} alt="логотип Улыбка"/>
                     </Link>
                     {children}
