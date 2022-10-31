@@ -7,8 +7,7 @@ function Portfolio () {
         name: 'Александр',
         profession: 'Фронтенд-разработчик, 38 лет',
         about: `Сферу фронтэнд разработки выбрал потому, что она интересна мне с точки зрения
-        <p>изучения новых фреймворков и библиотек</p>,
-        <span>something</span>
+        изучения новых фреймворков и библиотек,
         возможностей реализации задач различными способами,
         знакомств с интересными людьми,
         перспективы отсутствия привязки к определённому месту жительства`,
@@ -52,7 +51,7 @@ function Portfolio () {
                             <p className="portfolio__title-item">{text.titleItem}</p>
                             <div className="portfolio__item">
                                 <a className="portfolio__item-web">{text.item1}</a>
-                                <a 
+                                <a
                                     href = {text.linkStatic}
                                     target="_blank" rel="noopener noreferrer"
                                     className="portfolio__item-web"

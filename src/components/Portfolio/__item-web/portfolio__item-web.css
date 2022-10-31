@@ -11,6 +11,11 @@
     text-decoration: none;
 }
 
+.portfolio__item-web:hover {
+    color: #2BE080;
+    transition: 0.7s
+}
+
 @media screen and (max-width: 768px) {
     .portfolio__item-web {
         font-size: 28px;

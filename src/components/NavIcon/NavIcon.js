@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-scroll'
 
-function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, href, to}) {
+function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, to}) {
 
     return (
         <>
@@ -10,7 +10,6 @@ function NavIcon ({titleIcon, iconStyle, textStyle, navTabStyle, href, to}) {
                     <Link 
                         className={textStyle} 
                         to={to}
-                        href={href}
                         smooth={true}
                         duration={1000}
                     >

@@ -9,3 +9,8 @@
     grid-column-start: 1;
     grid-column-end: 2;
 }
+
+.portfolio__link:hover {
+    color: #2BE080;
+    transition: 0.7s
+}
