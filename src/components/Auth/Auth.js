@@ -1,4 +1,6 @@
-export const BASE_URL = 'https://api.jet.nomoredomains.work';
+//export const BASE_URL = 'https://api.jet.nomoredomains.work';
+export const BASE_URL = 'https://movies-expl.onrender.com';
+
 
 // проверка ответа от сервера
 const checkResponse = (response) => {
