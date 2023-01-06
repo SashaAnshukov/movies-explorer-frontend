@@ -447,7 +447,7 @@ function App() {
 
   return (
     <div className="App">
-      <CurrentUserContext.Provider value={currentUser}>
+      <CurrentUserContext.Provider value={'2d'}>
         <Header >
           <NavBar loggedIn={loggedIn} />
         </Header>
