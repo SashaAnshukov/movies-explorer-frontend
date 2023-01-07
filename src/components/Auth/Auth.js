@@ -1,5 +1,5 @@
 //export const BASE_URL = 'https://api.jet.nomoredomains.work';
-export const BASE_URL = 'https://movies-expl.onrender.com';
+export const BASE_URL = 'https://from-react-mesto-api.vercel.app';
 
 
 // проверка ответа от сервера
