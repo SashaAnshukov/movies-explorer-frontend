@@ -91,8 +91,7 @@ export class MainApi {
 
 
 const mainApi = new MainApi({
-    //adress: 'https://api.jet.nomoredomains.work', //мой бэк
-    adress: 'https://movies-expl.onrender.com', //мой бэк
+    adress: 'https://api.jet.nomoredomains.work', //мой бэк
     apiURL: 'https://api.nomoreparties.co' // бэк с фильмами
     //token : '86724e9f-206a-43a9-ab92-a5e8d301d078'
 })
