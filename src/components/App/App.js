@@ -19,54 +19,6 @@ import error from "../../images/error.svg";
 import {useState, useEffect} from 'react';
 
 function App() {
-////////////////////////////////////
-const massivChisel = [1, 2, 3, 4, 5, 6, 7, 8];
-//console.log(massivChisel.length)
-const chislo = 8;
-
-function findPairs(arr, k) {  
-  let sortedArray = arr.sort((a,b)=> a-b);;
-  console.log(sortedArray);
-  let result = [];
-  let result2 = [];
-  let a = 0;
-  let b = a+1;
-  let z = sortedArray.length - 1;
-  while (a < z) {
-      let Summ2 = sortedArray[a] + sortedArray[z];
-      if (Summ2 === k) {
-          let resultPair = [sortedArray[a],  sortedArray[z]];
-          if (result.indexOf(resultPair) === -1) {
-              result.push(resultPair);
-          }
-          a += 1;
-          z -= 1;
-      } else if (Summ2 < k) {
-          a += 1;
-      } else {
-          z -= 1;
-      }
-  }
-  /*while (b < z) {
-    let Summ3 = sortedArray[a] + sortedArray[b] + sortedArray[z];
-    if (Summ3 === k) {
-        let resultThree = [sortedArray[a], sortedArray[b], sortedArray[z]];
-        result2.push(resultThree);
-        b += 1;
-        z -= 1;
-    } else if (Summ3 < k) {
-        b += 1;
-    } else if (Summ3 < k) {
-        z -= 1;
-    }
-}*/
-  return result && result2;
-}
-
-console.log(findPairs(massivChisel, chislo));
-
-
-///////////////////////////////////////////////
 
   const [currentUser , setCurrentUser] = useState('');
   
