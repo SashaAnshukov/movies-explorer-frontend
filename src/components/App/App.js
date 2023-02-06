@@ -389,7 +389,9 @@ function App() {
   // Отправляем запрос в API и обновляем значения профиля
   function handleUpdateUser (dataUser) {
     console.log(dataUser)
-    if (dataUser.email !== currentUser.email){
+    console.log(currentUser.name)
+    console.log(currentUser.email)
+    if (dataUser.name !== currentUser.name || dataUser.email !== currentUser.email){
       mainApi.setUserData(dataUser).then((res) => {
         setTimeout(setShowToolTip, 1000, true);
         ChooseInfoTooltip({
@@ -417,7 +419,7 @@ function App() {
           console.log (`Ошибка: ${err}`)
         }
       })
-    }else {
+    } else {
         setTimeout(setShowToolTip, 1000, true);
         ChooseInfoTooltip({
           image: error,
@@ -447,7 +449,7 @@ function App() {
 
   return (
     <div className="App">
-      <CurrentUserContext.Provider value={'currentUser'}>
+      <CurrentUserContext.Provider value={currentUser}>
         <Header >
           <NavBar loggedIn={loggedIn} />
         </Header>
