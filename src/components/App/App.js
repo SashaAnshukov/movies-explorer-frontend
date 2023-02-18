@@ -132,7 +132,7 @@ function App() {
       })
       .then((res) => res.json())
       .then(res => {
-        console.log(res)
+        //console.log(res)
         updateMovies(res)
       })
     
@@ -143,7 +143,7 @@ function App() {
   const fetchFavoriteMovies = () => {
     mainApi.getSavedMovies()
       .then(movies => {
-        console.log(movies)
+        //console.log(movies)
         updateFavoriteMovies(movies)
       })
       .catch(() => {
@@ -206,7 +206,7 @@ function App() {
     mainApi.createMovie(newCard)
       .then((res) => {
           const newFavouriteList = [res.data, ...favoriteCards];
-          console.log('newFavouriteList', newFavouriteList)
+          //console.log('newFavouriteList', newFavouriteList)
           updateFavoriteMovies(newFavouriteList);
       })
       .catch(err => {
@@ -388,9 +388,9 @@ function App() {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////F
   // Отправляем запрос в API и обновляем значения профиля
   function handleUpdateUser (dataUser) {
-    console.log(dataUser)
+    /*console.log(dataUser)
     console.log(currentUser.name)
-    console.log(currentUser.email)
+    console.log(currentUser.email)*/
     if (dataUser.name !== currentUser.name || dataUser.email !== currentUser.email){
       mainApi.setUserData(dataUser).then((res) => {
         setTimeout(setShowToolTip, 1000, true);
@@ -434,7 +434,7 @@ function App() {
   useEffect(() => {
       mainApi.getUserData()
       .then((res) => {
-      console.log(res)
+      //console.log(res)
         if (res) {
           setLoggedIn(true);
           navigate({ replace: false });
