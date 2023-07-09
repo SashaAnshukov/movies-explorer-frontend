@@ -1,4 +1,4 @@
-export const BASE_URL = "https://moviesearch.nomoredomains.work";
+export const BASE_URL = "https://movies.nomoredomains.work";
 
 // проверка ответа от сервера
 const checkResponse = (response) => {
